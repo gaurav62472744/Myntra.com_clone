@@ -1,9 +1,10 @@
+import MainRoutes from "./AllRoutes/MainRoutes";
 import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <h1>Myntra Clone Work in Progress</h1>
+      <MainRoutes />
     </div>
   );
 }
