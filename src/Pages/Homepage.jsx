@@ -1,4 +1,4 @@
-import { Box, Grid, Image, Text } from "@chakra-ui/react";
+import { Box, Grid, Image } from "@chakra-ui/react";
 import React from "react";
 import axios from "axios";
 import { useState } from "react";
@@ -76,7 +76,6 @@ const Homepage = () => {
 
   return (
     <Box>
-      <Text>Myntra clone is in progress</Text>
       <Image
         width={"93vw"}
         margin={"auto"}
