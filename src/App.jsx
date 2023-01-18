@@ -9,7 +9,7 @@ function App() {
     <div className="App">
 
       {/* <MainRoutes /> */}
-      <LargeWithAppLinksAndSocial />
+      {/* <LargeWithAppLinksAndSocial /> */}
 
       <Navbar />
       <MainRoutes />
