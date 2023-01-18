@@ -1,7 +1,7 @@
 import { Box, Heading,FormLabel,Text } from '@chakra-ui/react'
 import React from 'react'
 
-export const ProductPriceDetails = ({mrp=5000,discount=2000,coupon=50,convience=0}) => {
+export const ProductPriceDetails = ({mrp=4000,discount=100,coupon=500,convience=0}) => {
   return (
     <Box mt='5px' width='280px' >
         {/* <Box border='1px solid green'>
@@ -18,12 +18,12 @@ export const ProductPriceDetails = ({mrp=5000,discount=2000,coupon=50,convience=
              <hr/>
              <FormLabel fontSize='14px' >Total Amount</FormLabel>
              </Box>
-             <Box lineHeight={'25px'} textAlign={'right'} >
-                <Text color={'white'}>100</Text>
+             <Box mt='30px' lineHeight={'25px'} textAlign={'right'} >
+                
                 <Text fontSize={'14px'} >₹{mrp}</Text>
                 <Text fontSize={'14px'} color='green.400'>-₹{discount}</Text>
                 <Text fontSize={'14px'} color='green.400'>-₹{coupon}</Text>
-                <Text mb='18px' fontSize={'14px'} color='green.400'>{convience >0 ? convience:'FREE'}</Text>
+                <Text mb='14px' fontSize={'14px'} color='green.400'>{convience >0 ? convience:'FREE'}</Text>
                 <hr/>
                 <FormLabel fontSize='14px' >₹{mrp-discount-coupon+convience}</FormLabel>
              </Box>

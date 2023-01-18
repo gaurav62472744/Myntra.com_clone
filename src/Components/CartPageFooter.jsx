@@ -41,8 +41,8 @@ export const CartPageFooter = () => {
     <Box  width='80%' m='auto' justifyContent={'space-evenly'} display={'flex'} >
         <Box gap={1} display={'flex'} >
         {
-            logos.map((el)=>{
-                return <Box  height='37px' width='70px' >
+            logos.map((el,index)=>{
+                return <Box key={index}  height='37px' width='70px' >
                     <Image  src={el.url} />
                 </Box>
             })
