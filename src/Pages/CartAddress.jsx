@@ -9,17 +9,11 @@ import { CartPageFooter } from '../Components/CartPageFooter'
 import { ProductPriceDetails } from '../Components/ProductPriceDetails'
 import { getAddres } from '../Redux/CartAddress/action'
 
-export const CartAddress = () => {
 
 
-import { Box, Image, Progress, Spacer, Text } from "@chakra-ui/react";
-import React, { useState } from "react";
-import { AddressInput } from "../Components/AddressInput";
-import { CartPageFooter } from "../Components/CartPageFooter";
-import { ProductPriceDetails } from "../Components/ProductPriceDetails";
 
 export const CartAddress = () => {
-  const [address, setaddress] = useState([]);
+ 
 
 const dispatch=useDispatch()
 
@@ -58,16 +52,6 @@ console.log('get',address)
           ------------ PAYMENT
         </Box>
 
-
-
-<Box   display='flex' m='auto' width={{base:'100%',md:'100%',lg:'60%'}} justifyContent='space-evenly' >
-        <Box>
-
-         {
-          address.length>0?<AddressDetails/>: <AddressInput/>
-         }
-
-   
         <Box>
           <Box display={"flex"}>
             <Image
@@ -84,27 +68,23 @@ console.log('get',address)
               100% SECURE
             </Text>
           </Box>
-
         </Box>
       </Box>
 
-      {address.length > 0 ? (
-        <Text>user have already a address</Text>
-      ) : (
-        <Box
-          display="flex"
-          m="auto"
-          width={{ base: "100%", md: "100%", lg: "60%" }}
-          justifyContent="space-evenly"
-        >
-          <Box>
-            <AddressInput />
-          </Box>
+<Box   display='flex' m='auto' width={{base:'100%',md:'100%',lg:'60%'}} justifyContent='space-evenly' >
+        <Box>
+
+         {
+          address.length>0?<AddressDetails/>: <AddressInput/>
+         }
+
+   </Box>
+      
           <Box>
             <ProductPriceDetails />
           </Box>
         </Box>
-      )}
+     
 
       <Box mt="40px">
         <CartPageFooter />
@@ -114,13 +94,8 @@ console.log('get',address)
 
        
     
-   <Box mt='40px'>
-     <CartPageFooter  />
-     </Box>
-    </Box>
+  
+   
   )
-}
-
-  );
 };
 
