@@ -3,15 +3,12 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const DivWrapper = styled.div`
-  border: 1px solid red;
-  width: 15%;
-  align-items: center;
-`;
-
-const DivBox = styled.div`
-  border: 1px solid green;
+  /* border: 1px solid red; */
   width: 100%;
-  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  & .brand {
+    font-weight: bold;
+  }
 `;
 
 const ProductItem = ({
@@ -24,24 +21,24 @@ const ProductItem = ({
   discount,
 }) => {
   const navigate = useNavigate();
-  console.log("images", images);
+
   return (
     <DivWrapper>
-      <DivBox>
+      <div>
         <img
+          className="imag"
           onClick={() => navigate(`/productlist/${id}`)}
           src={images[0]}
           alt=""
         />
-
-        <h2>Brand:{brand}</h2>
-        <h4>Category:{category}</h4>
-        <h4>Title:{title}</h4>
-        <h4>
-          {discounted_price}
+        <h2 className="brand">Brand:{brand}</h2>
+        <p className="category">Category:{category}</p>
+        <p className="title">Title:{title}</p>
+        <p className="rate">
+          Price:{discounted_price}
           {discount}
-        </h4>
-      </DivBox>
+        </p>
+      </div>
     </DivWrapper>
   );
 };

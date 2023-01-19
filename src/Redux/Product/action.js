@@ -23,7 +23,7 @@ export const getProducts = (param) => (dispatch) => {
   dispatch(getProductRequestAction());
 
   axios
-    .get(`https://wadrobe.onrender.com/${param}/?_limit=30`)
+    .get(`https://wadrobe.onrender.com/men?_limit=30`, param)
     .then((res) => {
       dispatch(getProductSuccessAction(res.data));
     })

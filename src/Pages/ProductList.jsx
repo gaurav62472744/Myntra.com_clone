@@ -5,32 +5,53 @@ import { getProducts } from "../Redux/Product/action";
 import SideBar from "./SideBar";
 import { store } from "../Redux/store";
 import ProductItem from "../Components/ProductItem";
+import styled from "styled-components";
+
+const DivWraper = styled.div`
+  border: 1px solid brown;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  & .prodlist {
+    border: 1px solid blue;
+    display: grid;
+    grid-template-columns: repeat(5, 250px);
+    width: 80%;
+  }
+  & .wrap {
+    width: 75%;
+    border: 1px solid black;
+  }
+`;
 
 const ProductList = () => {
   const dispatch = useDispatch();
-  const products = useSelector((store) => store.products);
+  const products = useSelector((store) => store.ProductReducer.products);
 
   useEffect(() => {
-    dispatch(getProducts("men"));
+    dispatch(getProducts());
   }, []);
 
   //console.log(store.getState())
-  console.log(products);
+  console.log("productss", products);
 
   // ..........................................
   return (
     <>
-      <div>
-        <div>ProductLIst</div>
-        {/* <SideBar /> */}
-        {products.map((el) => {
-          return (
-            <div>
-              <ProductItem {...el} />
-            </div>
-          );
-        })}
-      </div>
+      <DivWraper>
+        <div className="sidebr">
+          <SideBar />
+        </div>
+        <div className="prodtlist">
+          {products?.map((el, index) => {
+            return (
+              <div className="wrap" key={index}>
+                <ProductItem {...el} />
+              </div>
+            );
+          })}
+        </div>
+      </DivWraper>
 
       <div>
         <div className="buy-men-tshrt">
