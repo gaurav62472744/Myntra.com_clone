@@ -7,14 +7,12 @@ import Navbar from "./Components/Navbar";
 function App() {
   return (
     <div className="App">
-
       {/* <MainRoutes /> */}
       {/* <LargeWithAppLinksAndSocial /> */}
 
-      <Navbar />
+      {/* <Navbar /> */}
       <MainRoutes />
-      <Footer />
-
+      {/* <Footer /> */}
     </div>
   );
 }
