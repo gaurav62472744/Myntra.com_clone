@@ -2,7 +2,6 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 // import { Zoom } from "react-slideshow-image";
-import "react-slideshow-image/dist/styles.css";
 
 const DivWrapper = styled.div`
   /* border: 1px solid red; */
