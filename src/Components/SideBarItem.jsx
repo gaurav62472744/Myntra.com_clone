@@ -2,8 +2,7 @@ import React from "react";
 import { useState } from "react";
 
 const SideBarItem = ({ name, quan }) => {
-//   console.log("props", name, quan);
-  const [value, setValue] = useState([]);
+const [value, setValue] = useState([]);
 //   console.log("value", value);
   return (
     <div>
