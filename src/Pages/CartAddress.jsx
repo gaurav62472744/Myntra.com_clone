@@ -1,5 +1,5 @@
 
-import { Box, Image, Progress, Spacer,Text } from '@chakra-ui/react'
+import { Box, Button, Image, Progress, Spacer,Text } from '@chakra-ui/react'
 import React,{useState} from 'react'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
@@ -8,8 +8,8 @@ import { AddressInput } from '../Components/AddressInput'
 import { CartPageFooter } from '../Components/CartPageFooter'
 import { ProductPriceDetails } from '../Components/ProductPriceDetails'
 import { getAddres } from '../Redux/CartAddress/action'
-
-
+import Wardrobe from '../Utils/Wardrobe.png'
+import { Link } from 'react-router-dom'
 
 
 export const CartAddress = () => {
@@ -29,13 +29,14 @@ console.log('get',address)
       <Box
         display={"flex"}
         boxShadow=" rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;"
-        padding="20px 60px"
+        padding="15px 60px"
         justifyContent={"space-between"}
+       
       >
-        <Box>
+        <Box w='13%' >
           <Image
-            w="50%"
-            src="https://constant.myntassets.com/checkout/assets/img/footer-bank-cod.png"
+            w="35%"
+            src={Wardrobe}
           />
         </Box>
 
@@ -82,6 +83,9 @@ console.log('get',address)
       
           <Box>
             <ProductPriceDetails />
+            {
+              address.length>0 && <Link to='/cartpayment'><Button  mt='15px' p='20px' bg='#FF3F6C' colorScheme={'white'} w='100%'>CONTINUE</Button></Link>
+            }
           </Box>
         </Box>
      
@@ -92,10 +96,6 @@ console.log('get',address)
     </Box>
 
 
-       
-    
-  
-   
   )
 };
 

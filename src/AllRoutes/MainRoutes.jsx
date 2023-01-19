@@ -13,6 +13,7 @@ const MainRoutes = () => {
         <Route path="*" element={<NotFound />}></Route>
         <Route path='/cartaddress' element={<CartAddress/>} />
         <Route path="/cartpayment" element={<CartPayment/>} />
+        
       </Routes>
     </div>
   );

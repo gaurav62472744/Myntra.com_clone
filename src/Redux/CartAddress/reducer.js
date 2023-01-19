@@ -1,4 +1,4 @@
-import { ADD_ADDRESS_SUCCESS, GET_ADDRESS_SUCCESS } from "./actionTypes"
+import { ADD_ADDRESS_SUCCESS, DELETE_ADDRESS_SUCCESS, GET_ADDRESS_SUCCESS } from "./actionTypes"
 
 
 const initialState={
@@ -25,6 +25,12 @@ const reducer=(state=initialState,action)=>{
             }
         }
 
+        case DELETE_ADDRESS_SUCCESS:{
+            const newaddress=state.address.map(el=>el.id!==payload.id)
+            return {
+                 ...state,address:newaddress
+            }
+        }
         default:
             return state
     }
