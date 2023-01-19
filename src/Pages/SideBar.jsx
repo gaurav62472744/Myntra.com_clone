@@ -59,17 +59,18 @@ const SideBar = () => {
   return (
     <div>
       <div>
+        <div>
+          <p>BRAND</p>
+          {brand.map((item) => (
+            <SideBarItem name={item.name} />
+          ))}
+        </div>
         <p>CATEGORIES</p>
         {categories.map((item) => (
           <SideBarItem name={item.name} />
         ))}
       </div>
-      <div>
-        <p>BRAND</p>
-        {brand.map((item) => (
-          <SideBarItem name={item.name} />
-        ))}
-      </div>
+
       <div>
         <p>TITLE</p>
         {title.map((item) => (
