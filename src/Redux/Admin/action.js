@@ -42,16 +42,7 @@ export const getAdminProduct = (dispatch) => {
 
 export const addAdminProduct = (text) => (dispatch) => {
   if (text) {
-    const userData = {
-      category: category,
-      brand: brand,
-      title: title,
-      discounted_price: discounted_price,
-      strike_price: strike_price,
-      discount: discount,
-      image: [],
-      size: [],
-    };
+    const userData = {};
 
     dispatch(postProductRequest());
     return axios

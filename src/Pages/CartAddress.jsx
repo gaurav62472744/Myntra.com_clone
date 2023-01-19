@@ -1,29 +1,23 @@
-
-import { Box, Image, Progress, Spacer,Text } from '@chakra-ui/react'
-import React,{useState} from 'react'
-import { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { AddressDetails } from '../Components/AddressDetails'
-import { AddressInput } from '../Components/AddressInput'
-import { CartPageFooter } from '../Components/CartPageFooter'
-import { ProductPriceDetails } from '../Components/ProductPriceDetails'
-import { getAddres } from '../Redux/CartAddress/action'
-
-
-
+import { Box, Image, Progress, Spacer, Text } from "@chakra-ui/react";
+import React, { useState } from "react";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { AddressDetails } from "../Components/AddressDetails";
+import { AddressInput } from "../Components/AddressInput";
+import { CartPageFooter } from "../Components/CartPageFooter";
+import { ProductPriceDetails } from "../Components/ProductPriceDetails";
+import { getAddres } from "../Redux/CartAddress/action";
 
 export const CartAddress = () => {
- 
+  const dispatch = useDispatch();
 
-const dispatch=useDispatch()
+  const address = useSelector((store) => store.CartAddress.address);
 
-  const address=useSelector(store=>store.CartAddress.address)
+  useEffect(() => {
+    dispatch(getAddres());
+  }, []);
 
-useEffect(()=>{
-  dispatch(getAddres())
-},[])
-
-console.log('get',address)
+  console.log("get", address);
   return (
     <Box>
       <Box
@@ -71,31 +65,22 @@ console.log('get',address)
         </Box>
       </Box>
 
-<Box   display='flex' m='auto' width={{base:'100%',md:'100%',lg:'60%'}} justifyContent='space-evenly' >
+      <Box
+        display="flex"
+        m="auto"
+        width={{ base: "100%", md: "100%", lg: "60%" }}
+        justifyContent="space-evenly"
+      >
+        <Box>{address.length > 0 ? <AddressDetails /> : <AddressInput />}</Box>
+
         <Box>
-
-         {
-          address.length>0?<AddressDetails/>: <AddressInput/>
-         }
-
-   </Box>
-      
-          <Box>
-            <ProductPriceDetails />
-          </Box>
+          <ProductPriceDetails />
         </Box>
-     
+      </Box>
 
       <Box mt="40px">
         <CartPageFooter />
       </Box>
     </Box>
-
-
-       
-    
-  
-   
-  )
+  );
 };
-

@@ -1,12 +1,15 @@
 import { Box, Text } from "@chakra-ui/react";
 import React from "react";
 import AdminSide from "./AdminSide";
+import Multistep from "./ProductForm";
 
 const TrendingPro = () => {
   return (
     <Box>
       <AdminSide />
-      <Text>My Data Is</Text>
+      <Box>
+        <Multistep />
+      </Box>
     </Box>
   );
 };
