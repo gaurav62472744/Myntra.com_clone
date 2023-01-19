@@ -11,10 +11,9 @@ function App() {
       {/* <MainRoutes /> */}
       {/* <LargeWithAppLinksAndSocial /> */}
 
-      <Navbar />
+      {/* <Navbar /> */}
       <MainRoutes />
-      <Footer />
-     
+      {/* <Footer /> */}
     </div>
   );
 }
