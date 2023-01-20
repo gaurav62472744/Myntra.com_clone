@@ -5485,5 +5485,21 @@
       "rating": "3.7",
       "rating_count": "13.8k"
     }
-  ]
+  ],
+  "userData": [
+    {
+      "id": "1",
+      "first_name": "Jitendra",
+      "last_name": "Gadai",
+      "email": "jitendra@gmail.com",
+      "password": "jitendra@123"
+    }
+  ],
+  "adminData": {
+    "id": "1",
+    "first_name": "Gaurav",
+    "last_name": "singh",
+    "email": "gaurav@admin.com",
+    "password": "gaurav@123"
+  }
 }
