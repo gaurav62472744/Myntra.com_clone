@@ -46,8 +46,8 @@ export const AddressInput = () => {
     </Box>
     <FormLabel fontSize='13px'  mt='30px'>SAVE ADDRESS AS</FormLabel>
     <Box  mt='15px' display='flex'gap='15px' >
-    <Button  bg='white' border='1px solid grey' borderRadius='20px' size='sm' color='grey' >Home</Button>
-    <Button bg='white' border='1px solid grey' borderRadius='20px' size='sm' color='grey'>Work</Button>
+    <Button _focus={{color:'red',border:'1px solid red'}} bg='white' border='1px solid grey' borderRadius='20px' size='sm' color='grey' >Home</Button>
+    <Button _focus={{color:'red',border:'1px solid red'}} bg='white' border='1px solid grey' borderRadius='20px' size='sm' color='grey'>Work</Button>
     </Box>
     <Box mb='24px' mt='25px' display={'flex'} alignItems={'left'}>
     <Checkbox  mt='15px' >Make this my default address</Checkbox>
