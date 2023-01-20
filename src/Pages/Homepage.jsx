@@ -3,6 +3,8 @@ import React from "react";
 import axios from "axios";
 import { useState } from "react";
 import { useEffect } from "react";
+import Footer from "../Components/Footer";
+import Navbar from "../Components/Navbar";
 
 const Homepage = () => {
   const [omg, setOmg] = useState([]);
@@ -76,6 +78,7 @@ const Homepage = () => {
 
   return (
     <Box>
+      <Navbar />
       <Image
         width={"93vw"}
         margin={"auto"}
@@ -149,6 +152,7 @@ const Homepage = () => {
           );
         })}
       </Grid>
+      <Footer />
     </Box>
   );
 };

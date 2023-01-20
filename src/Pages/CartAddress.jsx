@@ -1,4 +1,3 @@
-
 import { Box, Button, Image, Progress, Spacer,Text } from '@chakra-ui/react'
 import React,{useState} from 'react'
 import { useEffect } from 'react'
@@ -98,4 +97,3 @@ console.log('get',address)
 
   )
 };
-
