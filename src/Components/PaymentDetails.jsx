@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, FormLabel, Button, Input, Radio, Spacer, Text } from '@chakra-ui/react'
+import { Box, FormLabel, Button, Text } from '@chakra-ui/react'
 import { useSelector } from 'react-redux'
 import { Accordion, AccordionItem, AccordionButton, AccordionIcon, AccordionPanel } from '@chakra-ui/react'
 import { TbDiscount2 } from 'react-icons/tb'
@@ -7,13 +7,13 @@ import { PaymentMode } from './PaymentMode'
 
 
 export const PaymentDetails = () => {
-    // const [check,setCheck]=useState(0)
+
     const address = useSelector(store => store.CartAddress.address)
     console.log(address)
     return (
         <Box mt='20px' w={{ base: '95%', md: '95%', lg: '650px' }} mr='50px'>
             <Box p='10px' boxShadow='  rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;' justifyContent='space-between'>
-                <Box  gap='2' display={'flex'}>
+                <Box gap='2' display={'flex'}>
                     <TbDiscount2 />
                     <FormLabel fontWeight='bold' fontSize='14px'>Bank Offer</FormLabel>
                 </Box>

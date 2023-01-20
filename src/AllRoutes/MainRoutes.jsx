@@ -9,6 +9,8 @@ import NotFound from "../Pages/NotFound";
 import { SingleProduct } from "../Pages/SingleProduct";
 import { CartAddress } from "../Pages/CartAddress";
 import { CartPayment } from "../Pages/CartPayment";
+import SignupCard from "../Pages/Signup";
+import Login from "../Components/Login";
 
 const MainRoutes = () => {
   return (
@@ -23,6 +25,8 @@ const MainRoutes = () => {
         <Route path="/storeproduct" element={<AdminStore />}></Route>
         <Route path="/productlist" element={<ProductList />} />
         <Route path="/productlist/:id" element={<SingleProduct />} />
+        <Route path='/signup' element={<SignupCard/>} />
+        <Route path='/login' element={<Login/>} />
       </Routes>
     </div>
   );

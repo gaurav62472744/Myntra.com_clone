@@ -1,18 +1,17 @@
 import React from "react";
-import { Box, Image,  Text } from "@chakra-ui/react";
+import { Box, Image, Text } from "@chakra-ui/react";
 import { ProductPriceDetails } from "../Components/ProductPriceDetails";
 import { CartPageFooter } from "../Components/CartPageFooter";
 import { PaymentDetails } from "../Components/PaymentDetails";
 import Wardrobe from '../Utils/Wardrobe.png'
 export const CartPayment = () => {
   return (
-    <Box >
-       <Box
+    <Box>
+      <Box
         display={"flex"}
         boxShadow=" rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;"
         padding="15px 60px"
         justifyContent={"space-between"}
-       
       >
         <Box w='13%' >
           <Image
@@ -53,19 +52,20 @@ export const CartPayment = () => {
         </Box>
       </Box>
 
-      <Box   display='flex' m='auto' width={{base:'100%',md:'100%',lg:'60%'}} justifyContent='space-evenly' >
+      <Box display='flex' m='auto' width={{ base: '100%', md: '100%', lg: '60%' }} justifyContent='space-evenly' >
         <Box>
 
-      <PaymentDetails/>
-       
+          <PaymentDetails />
 
-   </Box>
-      
-          <Box>
-            <ProductPriceDetails />
-          </Box>
+
         </Box>
-     
+
+        <Box>
+          <ProductPriceDetails />
+
+        </Box>
+      </Box>
+
 
       <Box mt="40px">
         <CartPageFooter />
