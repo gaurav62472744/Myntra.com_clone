@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 // import { Zoom } from "react-slideshow-image";
-import "react-slideshow-image/dist/styles.css";
 import { useToast } from "@chakra-ui/react";
 
 const DivWrapper = styled.div`
@@ -53,7 +52,6 @@ const ProductItem = ({
 }) => {
   const navigate = useNavigate();
   const toast = useToast();
-  
 
   return (
     <DivWrapper>

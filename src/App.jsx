@@ -8,7 +8,6 @@ import ProdcutText from "./Components/ProdcutText";
 function App() {
   return (
     <div className="App">
-      <MainRoutes />
       {/* <LargeWithAppLinksAndSocial /> */}
 
       {/* <Navbar /> */}

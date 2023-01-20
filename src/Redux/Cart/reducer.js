@@ -13,18 +13,18 @@ const reducer = (state = initialState, action) => {
   console.log("paylooaddd", payload);
 
   switch (type) {
-    case POST_CART_SUCCESS:
-      {
-        return {
-            ...state
-        }
-      }
+    case POST_CART_SUCCESS: {
+      return {
+        ...state,
+      };
+    }
 
-      case GET_CART_SUCCESS:{
-        return {
-            ...state,cart:payload
-        }
-      }
+    case GET_CART_SUCCESS: {
+      return {
+        ...state,
+        cart: payload,
+      };
+    }
     default:
       return state;
   }
