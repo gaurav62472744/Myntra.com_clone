@@ -349,6 +349,7 @@ export default function UserForm() {
         p={6}
         m="10px auto"
         as="form"
+        mt="150px"
       >
         <Progress
           hasStripe

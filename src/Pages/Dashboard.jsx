@@ -9,7 +9,7 @@ const Dashboard = () => {
       <Box>
         <AdminSide />
       </Box>
-      <Box>
+      <Box style={{ marginTop: "80px" }}>
         <Text>Mynta work in Progress</Text>
       </Box>
     </Box>

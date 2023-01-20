@@ -18,15 +18,15 @@ const MainRoutes = () => {
       <Routes>
         <Route path="/" element={<Homepage />}></Route>
         <Route path="*" element={<NotFound />}></Route>
-        <Route path='/cartaddress' element={<CartAddress/>} />
-        <Route path="/cartpayment" element={<CartPayment/>} />
+        <Route path="/cartaddress" element={<CartAddress />} />
+        <Route path="/cartpayment" element={<CartPayment />} />
         <Route path="/dashboard" element={<Dashboard />}></Route>
         <Route path="/addproduct" element={<TrendingPro />}></Route>
         <Route path="/storeproduct" element={<AdminStore />}></Route>
         <Route path="/productlist" element={<ProductList />} />
         <Route path="/productlist/:id" element={<SingleProduct />} />
-        <Route path='/signup' element={<SignupCard/>} />
-        <Route path='/login' element={<Login/>} />
+        <Route path="/signup" element={<SignupCard />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
     </div>
   );
