@@ -6,6 +6,7 @@ import {
 
 const initialState = {
   products: [],
+
   isLoading: false,
   isError: false,
 };
@@ -18,6 +19,7 @@ export const reducer = (state = initialState, { type, payload }) => {
       return { ...state, isLoading: false, products: payload };
     case GET_PRODUCTS_FAILURE:
       return { ...state, isLoading: false, isError: true };
+
     default:
       return state;
   }

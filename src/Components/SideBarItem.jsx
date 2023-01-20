@@ -1,11 +1,20 @@
 import React from "react";
 import { useState } from "react";
+import styled from "styled-components";
 
-const SideBarItem = ({ name, quan }) => {
-const [value, setValue] = useState([]);
-//   console.log("value", value);
+const DivWrap = styled.div`
+  border: 1px solid red;
+  display: flex;
+  align-items: center;
+
+  font-size: 15px;
+`;
+
+const SideBarItem = ({ name, quan, type }) => {
+  const [value, setValue] = useState([]);
+
   return (
-    <div>
+    <DivWrap>
       <div>
         <input
           type="checkbox"
@@ -15,9 +24,9 @@ const [value, setValue] = useState([]);
       </div>
       <div>
         <div>{name}</div>
-        <div>{quan}</div>
+        {type === "brand" && <div>({quan})</div>}
       </div>
-    </div>
+    </DivWrap>
   );
 };
 

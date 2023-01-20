@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 // import { Zoom } from "react-slideshow-image";
+import "react-slideshow-image/dist/styles.css";
+import { useToast } from "@chakra-ui/react";
 
 const DivWrapper = styled.div`
   /* border: 1px solid red; */
@@ -50,6 +52,8 @@ const ProductItem = ({
   discount,
 }) => {
   const navigate = useNavigate();
+  const toast = useToast();
+  
 
   return (
     <DivWrapper>
@@ -70,7 +74,19 @@ const ProductItem = ({
           <p style={{ color: "tomato" }}>{discount ? discount : "(65% OFF)"}</p>
         </div>
         <div className="divbtn">
-          <button className="btn">ADD TO CART</button>
+          <button
+            className="btn"
+            onClick={() =>
+              toast({
+                title: "Product added in Wishlist",
+                status: "success",
+                duration: 2000,
+                isClosable: true,
+              })
+            }
+          >
+            WishList
+          </button>
         </div>
       </div>
     </DivWrapper>
