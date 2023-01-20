@@ -12,6 +12,9 @@ import {
   GET_PRODUCT_FAILURE,
   GET_PRODUCT_REQUEST,
   GET_PRODUCT_SUCCESS,
+  UPDATE_PRODUCT_FAILURE,
+  UPDATE_PRODUCT_REQUEST,
+  UPDATE_PRODUCT_SUCCESS,
 } from "./actionTypes";
 
 export const getProductRequest = () => {
@@ -57,6 +60,18 @@ export const postChildProductSuccess = () => {
 };
 export const postChildProductFailure = () => {
   return { type: ADD_CHILD_PRODUCT_FAILURE };
+};
+
+export const updateProductRequest = () => {
+  return { type: UPDATE_PRODUCT_REQUEST };
+};
+
+export const updateProductSuccess = (payload) => {
+  return { type: UPDATE_PRODUCT_SUCCESS, payload };
+};
+
+export const updateProductFailure = () => {
+  return { type: UPDATE_PRODUCT_FAILURE };
 };
 
 export const getAdminProduct = (dispatch) => {
@@ -113,6 +128,19 @@ export const addChildAdminProduct = (data) => (dispatch) => {
     });
 };
 
+// update request
+
+export const updateAdminProduct = (id, data) => (dispatch) => {
+  dispatch(updateProductRequest());
+  return axios
+    .post(`https://wadrobe.onrender.com/men/${id}`, data)
+    .then((res) => {
+      dispatch(updateProductSuccess(res.data));
+    })
+    .catch((err) => {
+      dispatch(updateProductFailure());
+    });
+};
 // export const addProduct = (product) => async (dispatch) => {
 //   dispatch(addProductRequest());
 //   try {

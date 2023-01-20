@@ -7,7 +7,6 @@ import {
   Table,
   Thead,
   Tbody,
-  Tfoot,
   Tr,
   Th,
   Td,
@@ -27,7 +26,14 @@ const AdminStore = () => {
     <Box>
       <AdminSide />
 
-      <Box style={{ width: "80vw", margin: "auto", marginRight: "35px" }}>
+      <Box
+        style={{
+          width: "80vw",
+          margin: "auto",
+          marginRight: "35px",
+          marginTop: "80px",
+        }}
+      >
         {" "}
         <TableContainer>
           <Table variant="striped" colorScheme="teal">

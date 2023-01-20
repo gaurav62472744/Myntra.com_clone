@@ -84,6 +84,7 @@ const Homepage = () => {
         margin={"auto"}
         src="https://user-images.githubusercontent.com/110033104/213152925-02dc5b9f-acc6-4a8a-858b-a73336076f7f.png"
         alt="home"
+        marginTop={"80px"}
       />
       <Image
         src="https://assets.myntassets.com/f_webp,w_980,c_limit,fl_progressive,dpr_2.0/assets/images/2023/1/12/3d8b5917-e115-425b-8c93-2c2e427f9d4f1673517461716-OMG-Deal--2-.jpg"

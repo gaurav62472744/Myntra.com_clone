@@ -11,6 +11,9 @@ import {
   ADD_CHILD_PRODUCT_REQUEST,
   ADD_CHILD_PRODUCT_SUCCESS,
   ADD_CHILD_PRODUCT_FAILURE,
+  UPDATE_PRODUCT_REQUEST,
+  UPDATE_PRODUCT_SUCCESS,
+  UPDATE_PRODUCT_FAILURE,
 } from "./actionTypes";
 
 const inisitalState = {
@@ -45,6 +48,15 @@ const reducer = (state = inisitalState, { type, payload }) => {
       return { ...state, isLoading: false };
     case ADD_CHILD_PRODUCT_FAILURE:
       return { ...state, isLoading: false, isError: true };
+    case UPDATE_PRODUCT_REQUEST: {
+      return { ...state, isLoading: true };
+    }
+    case UPDATE_PRODUCT_SUCCESS: {
+      return { ...state, isLoading: false, products: payload };
+    }
+    case UPDATE_PRODUCT_FAILURE: {
+      return { ...state, isLoading: false, isError: true };
+    }
     default:
       return state;
   }

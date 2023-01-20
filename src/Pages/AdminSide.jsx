@@ -53,7 +53,7 @@ const LinkItems = [
 export default function AdminSide() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
-    <Box>
+    <Box pos={"fixed"} top={0} right={0} left={0} zIndex={999}>
       <SidebarContent
         // style={{ backgroundColor: "gray.200" }}
         bg={"gray.200"}
