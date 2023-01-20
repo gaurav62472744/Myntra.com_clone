@@ -450,7 +450,7 @@ export default function DummyNavbar() {
   const [verifya, setVerifya] = useState(false);
 
   const fetchData = async () => {
-    let res = await fetch("https://classic-world.onrender.com/UsersList");
+    let res = await fetch("https://wadrobe.onrender.com/userData");
     let data = await res.json();
     setVerify(true);
     setLoginUser(data);
