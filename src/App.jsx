@@ -12,8 +12,8 @@ function App() {
       {/* <LargeWithAppLinksAndSocial /> */}
 
       {/* <Navbar /> */}
-
-      {/* <Footer /> */}
+      <MainRoutes />
+      <Footer />
     </div>
   );
 }

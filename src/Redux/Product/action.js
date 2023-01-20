@@ -3,6 +3,7 @@ import {
   GET_PRODUCTS_FAILURE,
   GET_PRODUCTS_REQUEST,
   GET_PRODUCTS_SUCCESS,
+ 
 } from "./actionTypes";
 
 const getProductRequestAction = () => {
@@ -17,13 +18,14 @@ const getProductFailureAction = () => {
   return { type: GET_PRODUCTS_FAILURE };
 };
 
+
 // ..........................getApi............................
 
 export const getProducts = (param) => (dispatch) => {
   dispatch(getProductRequestAction());
 
   axios
-    .get(`https://wadrobe.onrender.com/men?_limit=30`, param)
+    .get(`https://wadrobe.onrender.com/men?_page=2&_limit=50`, param)
     .then((res) => {
       dispatch(getProductSuccessAction(res.data));
     })
@@ -31,3 +33,5 @@ export const getProducts = (param) => (dispatch) => {
       dispatch(getProductFailureAction());
     });
 };
+
+
