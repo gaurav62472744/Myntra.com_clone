@@ -34,6 +34,7 @@ import {
 import { AiOutlineUsergroupAdd, AiOutlineFolderAdd } from "react-icons/ai";
 import { MdOutlineStoreMallDirectory } from "react-icons/md";
 import image from "../Utils/Wardrobe.png";
+import { NavLink } from "react-router-dom";
 // import { IconType } from 'react-icons';
 // import { ReactText } from 'react';
 
@@ -43,7 +44,7 @@ import image from "../Utils/Wardrobe.png";
 // }
 const LinkItems = [
   { name: "Home", icon: FiHome, path: "/dashboard" },
-  { name: "Add Product", icon: AiOutlineFolderAdd, path: "/trending" },
+  { name: "Add Product", icon: AiOutlineFolderAdd, path: "/addproduct" },
   { name: "Store", icon: MdOutlineStoreMallDirectory, path: "/storeproduct" },
   { name: "Customer", icon: AiOutlineUsergroupAdd, path: "/customer" },
   { name: "Settings", icon: FiSettings, path: "/setting" },
@@ -109,7 +110,7 @@ const SidebarContent = ({ onClose, ...rest }) => {
         <CloseButton display={{ base: "flex", md: "none" }} onClick={onClose} />
       </Flex>
       {LinkItems.map((link) => (
-        <NavItem key={link.name} icon={link.icon}>
+        <NavItem key={link.name} icon={link.icon} item={link.path}>
           {link}
         </NavItem>
       ))}
@@ -122,11 +123,11 @@ const SidebarContent = ({ onClose, ...rest }) => {
 // interface NavItemProps extends FlexProps {
 //   icon: IconType;
 //   children: ReactText;
-// }
-const NavItem = ({ icon, children, ...rest }) => {
+
+const NavItem = ({ icon, children, item, ...rest }) => {
   return (
-    <Link
-      href={children.path}
+    <NavLink
+      to={item}
       style={{ textDecoration: "none" }}
       _focus={{ boxShadow: "none" }}
     >
@@ -155,7 +156,7 @@ const NavItem = ({ icon, children, ...rest }) => {
         )}
         {children.name}
       </Flex>
-    </Link>
+    </NavLink>
   );
 };
 

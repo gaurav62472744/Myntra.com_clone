@@ -19,7 +19,7 @@ const MainRoutes = () => {
         <Route path="/cartaddress" element={<CartAddress />} />
         <Route path="/cartpayment" element={<CartPayment />} />
         <Route path="/dashboard" element={<Dashboard />}></Route>
-        <Route path="/trending" element={<TrendingPro />}></Route>
+        <Route path="/addproduct" element={<TrendingPro />}></Route>
         <Route path="/storeproduct" element={<AdminStore />}></Route>
         <Route path="/productlist" element={<ProductList />} />
         <Route path="/productlist/:id" element={<SingleProduct />} />
