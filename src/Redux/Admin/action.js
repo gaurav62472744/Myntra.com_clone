@@ -1,8 +1,14 @@
 import axios from "axios";
 import {
-  ADD_PRODUCT_FAILURE,
-  ADD_PRODUCT_REQUEST,
-  ADD_PRODUCT_SUCCESS,
+  ADD_CHILD_PRODUCT_FAILURE,
+  ADD_CHILD_PRODUCT_REQUEST,
+  ADD_CHILD_PRODUCT_SUCCESS,
+  ADD_MEN_PRODUCT_FAILURE,
+  ADD_MEN_PRODUCT_REQUEST,
+  ADD_MEN_PRODUCT_SUCCESS,
+  ADD_WOMEN_PRODUCT_FAILURE,
+  ADD_WOMEN_PRODUCT_REQUEST,
+  ADD_WOMEN_PRODUCT_SUCCESS,
   GET_PRODUCT_FAILURE,
   GET_PRODUCT_REQUEST,
   GET_PRODUCT_SUCCESS,
@@ -18,14 +24,39 @@ export const getProductFailure = () => {
   return { type: GET_PRODUCT_FAILURE };
 };
 
-export const postProductRequest = () => {
-  return { type: ADD_PRODUCT_REQUEST };
+//men data
+export const postMenProductRequest = () => {
+  return { type: ADD_MEN_PRODUCT_REQUEST };
 };
-export const postProductSuccess = () => {
-  return { type: ADD_PRODUCT_SUCCESS };
+export const postMenProductSuccess = () => {
+  return { type: ADD_MEN_PRODUCT_SUCCESS };
 };
-export const postProductFailure = () => {
-  return { type: ADD_PRODUCT_FAILURE };
+export const postMenProductFailure = () => {
+  return { type: ADD_MEN_PRODUCT_FAILURE };
+};
+
+//women data
+
+export const postWomenProductRequest = () => {
+  return { type: ADD_WOMEN_PRODUCT_REQUEST };
+};
+export const postWomenProductSuccess = () => {
+  return { type: ADD_WOMEN_PRODUCT_SUCCESS };
+};
+export const postWomenProductFailure = () => {
+  return { type: ADD_WOMEN_PRODUCT_FAILURE };
+};
+
+// Child Data
+
+export const postChildProductRequest = () => {
+  return { type: ADD_CHILD_PRODUCT_REQUEST };
+};
+export const postChildProductSuccess = () => {
+  return { type: ADD_CHILD_PRODUCT_SUCCESS };
+};
+export const postChildProductFailure = () => {
+  return { type: ADD_CHILD_PRODUCT_FAILURE };
 };
 
 export const getAdminProduct = (dispatch) => {
@@ -40,20 +71,46 @@ export const getAdminProduct = (dispatch) => {
     });
 };
 
-export const addAdminProduct = (text) => (dispatch) => {
-  if (text) {
-    const userData = {};
+// Men Data Post
 
-    dispatch(postProductRequest());
-    return axios
-      .post(`https://wadrobe.onrender.com/men`, userData)
-      .then((res) => {
-        dispatch(postProductSuccess());
-      })
-      .catch((err) => {
-        dispatch(postProductFailure());
-      });
-  }
+export const addMenAdminProduct = (data) => (dispatch) => {
+  dispatch(postMenProductRequest());
+  return axios
+    .post(`https://wadrobe.onrender.com/men`, data)
+    .then((res) => {
+      dispatch(postMenProductSuccess());
+    })
+    .catch((err) => {
+      dispatch(postMenProductFailure());
+    });
+};
+
+// Women data Post
+
+export const addWomenAdminProduct = (data) => (dispatch) => {
+  dispatch(postWomenProductRequest());
+  return axios
+    .post(`https://wadrobe.onrender.com/women`, data)
+    .then((res) => {
+      dispatch(postWomenProductSuccess());
+    })
+    .catch((err) => {
+      dispatch(postWomenProductFailure());
+    });
+};
+
+// Child data post
+
+export const addChildAdminProduct = (data) => (dispatch) => {
+  dispatch(postChildProductRequest());
+  return axios
+    .post(`https://wadrobe.onrender.com/child`, data)
+    .then((res) => {
+      dispatch(postChildProductSuccess());
+    })
+    .catch((err) => {
+      dispatch(postChildProductFailure());
+    });
 };
 
 // export const addProduct = (product) => async (dispatch) => {
