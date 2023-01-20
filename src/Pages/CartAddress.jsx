@@ -1,5 +1,5 @@
-import { Box, Button, Image, Progress, Spacer,Text } from '@chakra-ui/react'
-import React,{useState} from 'react'
+import { Box, Button, Image, Progress, Spacer, Text } from '@chakra-ui/react'
+import React, { useState } from 'react'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { AddressDetails } from '../Components/AddressDetails'
@@ -12,17 +12,17 @@ import { Link } from 'react-router-dom'
 
 
 export const CartAddress = () => {
- 
 
-const dispatch=useDispatch()
 
-  const address=useSelector(store=>store.CartAddress.address)
+  const dispatch = useDispatch()
 
-useEffect(()=>{
-  dispatch(getAddres())
-},[])
+  const address = useSelector(store => store.CartAddress.address)
 
-console.log('get',address)
+  useEffect(() => {
+    dispatch(getAddres())
+  }, [])
+
+  console.log('get', address)
   return (
     <Box>
       <Box
@@ -30,7 +30,7 @@ console.log('get',address)
         boxShadow=" rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;"
         padding="15px 60px"
         justifyContent={"space-between"}
-       
+
       >
         <Box w='13%' >
           <Image
@@ -71,23 +71,23 @@ console.log('get',address)
         </Box>
       </Box>
 
-<Box   display='flex' m='auto' width={{base:'100%',md:'100%',lg:'60%'}} justifyContent='space-evenly' >
+      <Box display='flex' m='auto' width={{ base: '100%', md: '100%', lg: '60%' }} justifyContent='space-evenly' >
         <Box>
 
-         {
-          address.length>0?<AddressDetails/>: <AddressInput/>
-         }
+          {
+            address.length > 0 ? <AddressDetails /> : <AddressInput />
+          }
 
-   </Box>
-      
-          <Box>
-            <ProductPriceDetails />
-            {
-              address.length>0 && <Link to='/cartpayment'><Button  mt='15px' p='20px' bg='#FF3F6C' colorScheme={'white'} w='100%'>CONTINUE</Button></Link>
-            }
-          </Box>
         </Box>
-     
+
+        <Box>
+          <ProductPriceDetails />
+          {
+            address.length > 0 && <Link to='/cartpayment'><Button mt='15px' p='20px' bg='#FF3F6C' colorScheme={'white'} w='100%'>CONTINUE</Button></Link>
+          }
+        </Box>
+      </Box>
+
 
       <Box mt="40px">
         <CartPageFooter />
