@@ -12,22 +12,58 @@ import {
   DELETE_PRODUCT_FAILURE,
   DELETE_PRODUCT_REQUEST,
   DELETE_PRODUCT_SUCCESS,
-  GET_PRODUCT_FAILURE,
-  GET_PRODUCT_REQUEST,
-  GET_PRODUCT_SUCCESS,
+  DELETE_USER_FAILURE,
+  DELETE_USER_REQUEST,
+  DELETE_USER_SUCCESS,
+  GET_CHILD_PRODUCT_FAILURE,
+  GET_CHILD_PRODUCT_REQUEST,
+  GET_CHILD_PRODUCT_SUCCESS,
+  GET_MEN_PRODUCT_FAILURE,
+  GET_MEN_PRODUCT_REQUEST,
+  GET_MEN_PRODUCT_SUCCESS,
+  GET_USERLIST_FAILURE,
+  GET_USERLIST_REQUEST,
+  GET_USERLIST_SUCCESS,
+  GET_WOMEN_PRODUCT_FAILURE,
+  GET_WOMEN_PRODUCT_REQUEST,
+  GET_WOMEN_PRODUCT_SUCCESS,
   UPDATE_PRODUCT_FAILURE,
   UPDATE_PRODUCT_REQUEST,
   UPDATE_PRODUCT_SUCCESS,
 } from "./actionTypes";
 
-export const getProductRequest = () => {
-  return { type: GET_PRODUCT_REQUEST };
+// get men data
+export const getMenProductRequest = () => {
+  return { type: GET_MEN_PRODUCT_REQUEST };
 };
-export const getProductSuccess = (payload) => {
-  return { type: GET_PRODUCT_SUCCESS, payload };
+export const getMenProductSuccess = (payload) => {
+  return { type: GET_MEN_PRODUCT_SUCCESS, payload };
 };
-export const getProductFailure = () => {
-  return { type: GET_PRODUCT_FAILURE };
+export const getMenProductFailure = () => {
+  return { type: GET_MEN_PRODUCT_FAILURE };
+};
+
+// get women data
+export const getWomenProductRequest = () => {
+  return { type: GET_WOMEN_PRODUCT_REQUEST };
+};
+export const getWomenProductSuccess = (payload) => {
+  return { type: GET_WOMEN_PRODUCT_SUCCESS, payload };
+};
+export const getWomenProductFailure = () => {
+  return { type: GET_WOMEN_PRODUCT_FAILURE };
+};
+
+// get child data
+
+export const getChildProductRequest = () => {
+  return { type: GET_CHILD_PRODUCT_REQUEST };
+};
+export const getChildProductSuccess = (payload) => {
+  return { type: GET_CHILD_PRODUCT_SUCCESS, payload };
+};
+export const getChildProductFailure = () => {
+  return { type: GET_CHILD_PRODUCT_FAILURE };
 };
 
 //men data
@@ -89,15 +125,63 @@ export const deleteProductFailure = () => {
   return { type: DELETE_PRODUCT_FAILURE };
 };
 
-export const getAdminProduct = (dispatch) => {
-  dispatch(getProductRequest());
+export const userDataRequest = () => {
+  return { type: GET_USERLIST_REQUEST };
+};
+
+export const userDataSuccess = (payload) => {
+  return { type: GET_USERLIST_SUCCESS, payload };
+};
+
+export const userDataFailure = () => {
+  return { type: GET_USERLIST_FAILURE };
+};
+
+export const deleteUserRequest = () => {
+  return { type: DELETE_USER_REQUEST };
+};
+
+export const deleteUserSuccess = () => {
+  return { type: DELETE_USER_SUCCESS };
+};
+
+export const deleteUserFailure = () => {
+  return { type: DELETE_USER_FAILURE };
+};
+// fetch request men
+export const getMenAdminProduct = (dispatch) => {
+  dispatch(getMenProductRequest());
   axios
     .get(`https://wadrobe.onrender.com/men`)
     .then((res) => {
-      dispatch(getProductSuccess(res.data));
+      dispatch(getMenProductSuccess(res.data));
     })
     .catch((err) => {
-      dispatch(getProductFailure());
+      dispatch(getMenProductFailure());
+    });
+};
+
+export const getWomenAdminProduct = (dispatch) => {
+  dispatch(getWomenProductRequest());
+  axios
+    .get(`https://wadrobe.onrender.com/women`)
+    .then((res) => {
+      dispatch(getWomenProductSuccess(res.data));
+    })
+    .catch((err) => {
+      dispatch(getWomenProductFailure());
+    });
+};
+
+export const getChildAdminProduct = (dispatch) => {
+  dispatch(getChildProductRequest());
+  axios
+    .get(`https://wadrobe.onrender.com/child`)
+    .then((res) => {
+      dispatch(getChildProductSuccess(res.data));
+    })
+    .catch((err) => {
+      dispatch(getChildProductFailure());
     });
 };
 
@@ -167,6 +251,32 @@ export const deleteAdminProduct = (id) => (dispatch) => {
     })
     .catch((err) => {
       dispatch(deleteProductFailure());
+    });
+};
+
+// user data get request
+
+export const getUserDataProduct = (dispatch) => {
+  dispatch(userDataRequest());
+  axios
+    .get(`https://wadrobe.onrender.com/userData`)
+    .then((res) => {
+      dispatch(userDataSuccess(res.data));
+    })
+    .catch((err) => {
+      dispatch(userDataFailure());
+    });
+};
+
+export const deleteUserData = (id) => (dispatch) => {
+  dispatch(deleteUserRequest());
+  return axios
+    .delete(`https://wadrobe.onrender.com/userData/${id}`)
+    .then((res) => {
+      dispatch(deleteUserSuccess());
+    })
+    .catch((err) => {
+      dispatch(deleteUserFailure());
     });
 };
 
