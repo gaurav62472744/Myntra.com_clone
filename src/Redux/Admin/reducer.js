@@ -91,7 +91,7 @@ const reducer = (state = inisitalState, { type, payload }) => {
       return { ...state, isLoading: true };
     }
     case UPDATE_PRODUCT_SUCCESS: {
-      return { ...state, isLoading: false, products: payload };
+      return { ...state, isLoading: false };
     }
     case UPDATE_PRODUCT_FAILURE: {
       return { ...state, isLoading: false, isError: true };

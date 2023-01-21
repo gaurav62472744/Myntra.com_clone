@@ -105,8 +105,8 @@ export const updateProductRequest = () => {
   return { type: UPDATE_PRODUCT_REQUEST };
 };
 
-export const updateProductSuccess = (payload) => {
-  return { type: UPDATE_PRODUCT_SUCCESS, payload };
+export const updateProductSuccess = () => {
+  return { type: UPDATE_PRODUCT_SUCCESS };
 };
 
 export const updateProductFailure = () => {
@@ -229,12 +229,15 @@ export const addChildAdminProduct = (data) => (dispatch) => {
 
 // update request
 
-export const updateAdminProduct = (id, data) => (dispatch) => {
+export const updateAdminProduct = (id, price, discount) => (dispatch) => {
   dispatch(updateProductRequest());
   return axios
-    .patch(`https://wadrobe.onrender.com/men/${id}`, data)
+    .patch(`https://wadrobe.onrender.com/men/${id}`, {
+      discounted_price: price,
+      discount: discount,
+    })
     .then((res) => {
-      dispatch(updateProductSuccess(res.data));
+      dispatch(updateProductSuccess());
     })
     .catch((err) => {
       dispatch(updateProductFailure());
@@ -279,82 +282,3 @@ export const deleteUserData = (id) => (dispatch) => {
       dispatch(deleteUserFailure());
     });
 };
-
-// export const addProduct = (product) => async (dispatch) => {
-//   dispatch(addProductRequest());
-//   try {
-//     const { data } = await axios.post(
-//       "https://paytmmallserver.onrender.com/product",
-//       product
-//     );
-//     console.error(" data", data);
-//     dispatch(addProductSuccess(data));
-//   } catch (error) {
-//     dispatch(addProductFailure(error));
-//   }
-// };
-
-// export const deleteProduct = (id) => async (dispatch) => {
-//   dispatch(deleteProductRequest());
-//   try {
-//     const { data } = await axios.delete(
-//       `https://paytmmallserver.onrender.com/product/${id}`
-//     );
-//     dispatch(deleteProductSuccess(data));
-//   } catch (error) {
-//     dispatch(deleteProductFailure(error));
-//   }
-// };
-
-// export const updateProduct = (id, product) => async (dispatch) => {
-//   dispatch(updateProductRequest());
-//   try {
-//     const { data } = await axios.put(
-//       `https://paytmmallserver.onrender.com/product/${id}`,
-//       product
-//     );
-//     dispatch(updateProductSuccess(data));
-//   } catch (error) {
-//     dispatch(updateProductFailure(error));
-//   }
-// };
-
-// export const getUsersList = async (dispatch) => {
-//   dispatch(getUserListRequest());
-//   try {
-//     const { data } = await axios.get(
-//       "https://paytmmallserver.onrender.com/users"
-//     );
-//     dispatch(getUserListSuccess(data));
-//   } catch (error) {
-//     console.log("error", error);
-//     dispatch(getUserListFailure(error));
-//   }
-// };
-
-// export const addUser = (user) => async (dispatch) => {
-//   try {
-//     const { data } = await axios.post(
-//       "https://paytmmallserver.onrender.com/users",
-//       user
-//     );
-//     console.log(data);
-//     // dispatch()
-//   } catch (error) {
-//     // dispatch()
-//     console.log("error", error);
-//   }
-// };
-
-// export const deleteUser = (email) => async (dispatch) => {
-//   dispatch(deleteUserRequest());
-//   try {
-//     const { data } = await axios.delete(
-//       `https://paytmmallserver.onrender.com/users?email=${email}`
-//     );
-//     console.log("data", data);
-//     dispatch(deleteUserSuccess(data.email));
-//   } catch (error) {
-//     dispatch(deleteUserFailure("error", error));
-//   }
-// };

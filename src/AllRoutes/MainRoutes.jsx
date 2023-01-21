@@ -15,15 +15,29 @@ import AdminCutomer from "../Pages/AdminCutomer";
 import { CartBag } from "../Pages/CartBag";
 import { PrivateRoute } from "./PrivateRoute";
 
-
 const MainRoutes = () => {
   return (
     <div>
       <Routes>
         <Route path="/" element={<Homepage />}></Route>
         <Route path="*" element={<NotFound />}></Route>
-        <Route path="/cartaddress" element={<PrivateRoute> <CartAddress /></PrivateRoute>} />
-        <Route path="/cartpayment" element={<PrivateRoute><CartPayment /></PrivateRoute>} />
+        <Route
+          path="/cartaddress"
+          element={
+            <PrivateRoute>
+              {" "}
+              <CartAddress />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/cartpayment"
+          element={
+            <PrivateRoute>
+              <CartPayment />
+            </PrivateRoute>
+          }
+        />
         <Route path="/dashboard" element={<Dashboard />}></Route>
         <Route path="/addproduct" element={<TrendingPro />}></Route>
         <Route path="/storeproduct" element={<AdminStore />}></Route>
@@ -32,7 +46,14 @@ const MainRoutes = () => {
         <Route path="/signup" element={<SignupCard />} />
         <Route path="/login" element={<Login />} />
         <Route path="/customer" element={<AdminCutomer />}></Route>
-        <Route path='/cartbag' element={<PrivateRoute><CartBag/></PrivateRoute>} />
+        <Route
+          path="/cartbag"
+          element={
+            <PrivateRoute>
+              <CartBag />
+            </PrivateRoute>
+          }
+        />
       </Routes>
     </div>
   );
