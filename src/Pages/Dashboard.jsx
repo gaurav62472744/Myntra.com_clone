@@ -2,7 +2,7 @@ import { Box, Text } from "@chakra-ui/react";
 import React from "react";
 
 import AdminSide from "./AdminSide";
-import Chart from "react-apexcharts";
+// import Chart from "react-apexcharts";
 
 const Dashboard = () => {
   return (
@@ -12,7 +12,7 @@ const Dashboard = () => {
       </Box>
       <Box style={{ marginTop: "80px" }}>
         <Text>Mynta work in Progress</Text>
-        <Chart
+        {/* <Chart
           mt={200}
           type="pie"
           width={1349}
@@ -23,7 +23,7 @@ const Dashboard = () => {
             noData: { text: "Empty Data" },
             labels: ["Child", "Customers", "Women", "Men"],
           }}
-        ></Chart>
+        ></Chart> */}
       </Box>
     </Box>
   );
