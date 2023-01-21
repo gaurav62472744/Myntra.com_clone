@@ -174,9 +174,7 @@ export const SingleProduct = () => {
               }}
             >
               {cartBtn ? (
-                <button onClick={() => navigate("/cartaddress")}>
-                  GO TO BAG
-                </button>
+                <button onClick={() => navigate("/cartbag")}>GO TO BAG</button>
               ) : (
                 <button onClick={handleClick}>ADD TO BAG</button>
               )}
