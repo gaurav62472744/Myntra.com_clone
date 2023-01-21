@@ -14,6 +14,9 @@ import {
   UPDATE_PRODUCT_REQUEST,
   UPDATE_PRODUCT_SUCCESS,
   UPDATE_PRODUCT_FAILURE,
+  DELETE_PRODUCT_REQUEST,
+  DELETE_PRODUCT_SUCCESS,
+  DELETE_PRODUCT_FAILURE,
 } from "./actionTypes";
 
 const inisitalState = {
@@ -55,6 +58,15 @@ const reducer = (state = inisitalState, { type, payload }) => {
       return { ...state, isLoading: false, products: payload };
     }
     case UPDATE_PRODUCT_FAILURE: {
+      return { ...state, isLoading: false, isError: true };
+    }
+    case DELETE_PRODUCT_REQUEST: {
+      return { ...state, isLoading: true };
+    }
+    case DELETE_PRODUCT_SUCCESS: {
+      return { ...state, isLoading: false };
+    }
+    case DELETE_PRODUCT_FAILURE: {
       return { ...state, isLoading: false, isError: true };
     }
     default:

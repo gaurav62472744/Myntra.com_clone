@@ -9,6 +9,9 @@ import {
   ADD_WOMEN_PRODUCT_FAILURE,
   ADD_WOMEN_PRODUCT_REQUEST,
   ADD_WOMEN_PRODUCT_SUCCESS,
+  DELETE_PRODUCT_FAILURE,
+  DELETE_PRODUCT_REQUEST,
+  DELETE_PRODUCT_SUCCESS,
   GET_PRODUCT_FAILURE,
   GET_PRODUCT_REQUEST,
   GET_PRODUCT_SUCCESS,
@@ -74,6 +77,18 @@ export const updateProductFailure = () => {
   return { type: UPDATE_PRODUCT_FAILURE };
 };
 
+export const deleteProductRequest = () => {
+  return { type: DELETE_PRODUCT_REQUEST };
+};
+
+export const deleteProductSuccess = () => {
+  return { type: DELETE_PRODUCT_SUCCESS };
+};
+
+export const deleteProductFailure = () => {
+  return { type: DELETE_PRODUCT_FAILURE };
+};
+
 export const getAdminProduct = (dispatch) => {
   dispatch(getProductRequest());
   axios
@@ -133,7 +148,7 @@ export const addChildAdminProduct = (data) => (dispatch) => {
 export const updateAdminProduct = (id, data) => (dispatch) => {
   dispatch(updateProductRequest());
   return axios
-    .post(`https://wadrobe.onrender.com/men/${id}`, data)
+    .patch(`https://wadrobe.onrender.com/men/${id}`, data)
     .then((res) => {
       dispatch(updateProductSuccess(res.data));
     })
@@ -141,6 +156,20 @@ export const updateAdminProduct = (id, data) => (dispatch) => {
       dispatch(updateProductFailure());
     });
 };
+
+//  delete request
+export const deleteAdminProduct = (id) => (dispatch) => {
+  dispatch(deleteProductRequest());
+  return axios
+    .delete(`https://wadrobe.onrender.com/men/${id}`)
+    .then((res) => {
+      dispatch(deleteProductSuccess());
+    })
+    .catch((err) => {
+      dispatch(deleteProductFailure());
+    });
+};
+
 // export const addProduct = (product) => async (dispatch) => {
 //   dispatch(addProductRequest());
 //   try {
