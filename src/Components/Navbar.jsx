@@ -547,7 +547,7 @@ export default function DummyNavbar() {
                   >
                     {verify && !verifya ? (
                       <Text fontWeight={"bold"} fontSize={"15px"}>
-                        Hello {LoginUser[LoginUser.length - 1].fname}
+                        Hello {LoginUser[LoginUser.length - 1].firstName}
                       </Text>
                     ) : (
                       <Text fontWeight={"bold"} fontSize={"15px"}>
@@ -557,7 +557,7 @@ export default function DummyNavbar() {
                     {verify && !verifya ? (
                       <Text fontWeight={"500"} fontSize={"13px"}>
                         {" "}
-                        {LoginUser[LoginUser.length - 1].email}
+                        {LoginUser[LoginUser.length - 1].Email}
                       </Text>
                     ) : (
                       <Text fontSize={"12px"} fontWeight={"500"}>
