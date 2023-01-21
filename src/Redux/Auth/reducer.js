@@ -1,7 +1,8 @@
-import { SIGN_UP_SUCCESS } from "./actionTypes";
+import { LOGIN_SUCCESS, SIGN_UP_SUCCESS } from "./actionTypes";
 
 const initialState = {
-  signupData: {},
+  signupData: [],
+  isAuth:false
 };
 
 export const reducer = (state = initialState, action) => {
@@ -13,7 +14,11 @@ export const reducer = (state = initialState, action) => {
         ...state,
       };
     }
-
+ case LOGIN_SUCCESS:{
+  return {
+    ...state,signupData:payload,isAuth:true
+  }
+ }
     default:
       return state;
   }

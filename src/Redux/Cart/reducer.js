@@ -1,6 +1,6 @@
 // import { POST_CART_SUCCESS, GET_CART_SUCCESS } from "./actionType";
 
-import { GET_CART_SUCCESS, POST_CART_SUCCESS } from "./actionTypes";
+import { DELETE_CART_SUCCESS, GET_CART_SUCCESS, POST_CART_SUCCESS } from "./actionTypes";
 
 const initialState = {
   cart: [],
@@ -25,6 +25,14 @@ const reducer = (state = initialState, action) => {
         cart: payload,
       };
     }
+
+    case DELETE_CART_SUCCESS:{
+      let updateData=state.cart.filter((el)=>el.id!==payload.id)
+      return {
+              ...state,cart:updateData
+      }
+    }
+
     default:
       return state;
   }
