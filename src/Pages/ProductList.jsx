@@ -7,6 +7,9 @@ import { store } from "../Redux/store";
 import ProductItem from "../Components/ProductItem";
 import styled from "styled-components";
 import ProdcutText from "../Components/ProdcutText";
+import { useLocation, useSearchParams } from "react-router-dom";
+import DummyNavbar from "../Components/Navbar";
+import LargeWithAppLinksAndSocial from "../Components/Footer";
 
 const DivWraper = styled.div`
   box-sizing: border-box;
@@ -16,6 +19,7 @@ const DivWraper = styled.div`
     width: 100%;
     display: flex;
     flex-direction: row;
+    margin-top: 60px;
   }
   & .sidebr {
     width: 18%;
@@ -41,17 +45,28 @@ const DivWraper = styled.div`
 const ProductList = () => {
   const dispatch = useDispatch();
   const products = useSelector((store) => store.ProductReducer.products);
+  const location = useLocation();
+  const [searchParams] = useSearchParams();
+  const search = searchParams.getAll("brand");
 
   useEffect(() => {
-    dispatch(getProducts());
-  }, []);
+    let getBrandData;
+    if (location.search || products.length === 0) {
+      getBrandData = {
+        params: {
+          brand: search,
+        },
+      };
+    }
+    dispatch(getProducts(getBrandData));
+  }, [location.search, dispatch, products.length, searchParams]);
 
   //console.log(store.getState())
-  console.log("productss", products);
 
   // ..........................................
   return (
     <>
+      <DummyNavbar />
       <DivWraper>
         <div className="container">
           <div className="sidebr">
@@ -72,6 +87,7 @@ const ProductList = () => {
           <ProdcutText />
         </div>
       </DivWraper>
+      <LargeWithAppLinksAndSocial />
     </>
   );
 };
