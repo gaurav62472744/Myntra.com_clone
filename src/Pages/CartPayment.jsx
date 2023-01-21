@@ -1,10 +1,38 @@
-import React from "react";
-import { Box, Image, Text } from "@chakra-ui/react";
+import React,{useState,useEffect} from "react";
+import { Box, Image, Text,FormLabel } from "@chakra-ui/react";
 import { ProductPriceDetails } from "../Components/ProductPriceDetails";
 import { CartPageFooter } from "../Components/CartPageFooter";
 import { PaymentDetails } from "../Components/PaymentDetails";
 import Wardrobe from "../Utils/Wardrobe.png";
-export const CartPayment = () => {
+import { getCartData } from "../Redux/Cart/action";
+import { useDispatch,useSelector } from "react-redux";
+export const CartPayment = ({coupon=0,convience=0}) => {
+
+  const [price, setprice] = useState(0)
+  const [afterdeduction,setafterdeduction]=useState(0)
+const cartData=useSelector(store=>store.CartReducer.cart)
+const dispatch=useDispatch()
+useEffect(()=>{
+ dispatch(getCartData())
+ let sum=0;
+ let finalprice=0
+ let newPrice=cartData?.map((el)=>{
+  
+  let y=+el.strike_price
+  let x=+el.discounted_price
+
+  sum=sum+y
+  finalprice+=x
+  console.log("cart amoyun",sum,finalprice)
+  
+
+ })
+ setprice(sum)
+ setafterdeduction(finalprice)
+},[])
+
+
+
   return (
     <Box>
       <Box
@@ -60,7 +88,50 @@ export const CartPayment = () => {
         </Box>
 
         <Box>
-          <ProductPriceDetails />
+
+        <Box mt="5px" width="280px">
+     
+      <Box lineHeight={"25px"} gap={7} display={"flex"}>
+        <Box textAlign={"left"}>
+          <FormLabel fontSize="13px">PRICE DETAILS({cartData.length} Items)</FormLabel>
+          <Text fontSize={"14px"}>Total MRP</Text>
+          <Text fontSize={"14px"}>Discount on MRP</Text>
+          <Text fontSize={"14px"}>Coupon Discount</Text>
+          <Text mb="10px" fontSize={"14px"}>
+            Convience Fee{" "}
+            <span
+              style={{ color: "#FF3F6C", fontWeight: "bold", fontSize: "15px" }}
+            >
+              Know More
+            </span>
+          </Text>
+          <hr />
+          <FormLabel fontSize="14px">Total Amount</FormLabel>
+        </Box>
+        <Box mt="30px" lineHeight={"25px"} textAlign={"right"}>
+          <Text fontSize={"14px"}>₹{price}</Text>
+          <Text fontSize={"14px"} color="green.400">
+            -₹{price-afterdeduction}
+          </Text>
+          <Text fontSize={"14px"} color="green.400">
+            -₹{coupon}
+          </Text>
+          <Text mb="14px" fontSize={"14px"} color="green.400">
+            {convience > 0 ? convience : "FREE"}
+          </Text>
+          <hr />
+          <FormLabel fontSize="14px">
+            ₹{afterdeduction - coupon + convience}
+          </FormLabel>
+        </Box>
+      </Box>
+    </Box>
+  
+
+
+
+
+          
         </Box>
       </Box>
 

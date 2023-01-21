@@ -53,7 +53,7 @@ const ProductItem = ({
   const navigate = useNavigate();
   const toast = useToast();
 
-  return (
+return (
     <DivWrapper>
       <div>
         <img

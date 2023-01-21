@@ -465,7 +465,9 @@ export default function DummyNavbar() {
       <Flex
         bg={useColorModeValue("white", "gray.800")}
         color={useColorModeValue("gray.600", "white")}
-        minH={"60px"}
+        // minH={"60px"}
+        h="70px"
+        w="100%"
         zIndex={999}
         pos={"fixed"}
         top={0}
@@ -493,7 +495,7 @@ export default function DummyNavbar() {
         <Flex flex={{ base: 1 }} justify={{ base: "center", md: "start" }}>
           <Box border={"0px solid black"}>
             <NavLink to="/">
-              <Image src={ward} width="100%" padding={"10px"} />
+              <Image   src={ward} height="40px" width="100%" paddingLeft="40px" paddingRight="40px" />
             </NavLink>
           </Box>
 
@@ -502,13 +504,13 @@ export default function DummyNavbar() {
           </Flex>
         </Flex>
 
-        <Stack w={"35%"} mr={"5%"}>
+        <Stack  w={"35%"} mr={"5%"}>
           <InputGroup>
             <InputLeftElement
               pointerEvents="none"
               children={<SearchIcon color="gray.300" />}
             />
-            <Input
+            <Input backgroundColor="gray.100"
               type="text"
               placeholder="Search for produts,brands and more"
             />

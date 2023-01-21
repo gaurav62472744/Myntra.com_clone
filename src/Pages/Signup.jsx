@@ -18,7 +18,8 @@ import { useState } from "react";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { SignUp } from "../Redux/Auth/action";
+import { getLoginData, SignUp } from "../Redux/Auth/action";
+import { useEffect } from "react";
 
 export default function SignupCard() {
   const [showPassword, setShowPassword] = useState(false);
@@ -30,6 +31,8 @@ export default function SignupCard() {
   const [Password, setPassword] = useState("");
 
   const signupData = useSelector((store) => store.AuthReducer.signupData);
+
+  
 
   const handleSignup = () => {
     dispatch(SignUp(firstName, lastName, Email, Password)).then((res) => {

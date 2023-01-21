@@ -9,7 +9,7 @@ const signupSuccess = () => {
 
 const getSignupSuccess = (payload) => {
   return {
-    type: LOGIN_SUCCESS,
+    type: LOGIN_SUCCESS,payload
   };
 };
 
@@ -21,14 +21,14 @@ export const SignUp = (firstName, LastName, Email, Password) => (dispatch) => {
     Password,
   };
 
-  return axios.post(`http://localhost:8080/auth`, payload).then((res) => {
+  return axios.post(`https://wadrobe.onrender.com/userData`, payload).then((res) => {
     console.log(res);
     dispatch(signupSuccess(res.data));
   });
 };
 
 export const getLoginData = () => (dispatch) => {
-  axios.get(`http://localhost:8080/auth`).then((res) => {
+  axios.get(`https://wadrobe.onrender.com/userData`).then((res) => {
     dispatch(getSignupSuccess(res.data));
   });
 };

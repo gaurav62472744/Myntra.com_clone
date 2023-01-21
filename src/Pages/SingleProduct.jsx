@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { useState } from "react";
@@ -8,12 +8,13 @@ import axios from "axios";
 import { store } from "../Redux/store";
 
 import { addCart, getCartData } from "../Redux/Cart/action";
+import { ArrowForwardIcon } from "@chakra-ui/icons";
 export const SingleProduct = () => {
   const [single, setSingle] = useState({});
   const { id } = useParams();
-
+  const [cartBtn, setCartBtn] = useState(false);
   const dispatch = useDispatch();
-
+  const navigate = useNavigate();
   const [demoData, setDemoData] = useState([]);
   console.log(id);
   const { products, cart } = useSelector((store) => {
@@ -33,6 +34,7 @@ export const SingleProduct = () => {
   //     });
   // };
   console.log(demoData);
+  console.log("singleData", single);
   useEffect(() => {
     // getData()
     let singleData = products.find((el) => el.id === id);
@@ -43,8 +45,8 @@ export const SingleProduct = () => {
   // console.log("", single);
 
   const handleClick = () => {
-    alert("hi i am cart");
     dispatch(addCart(single));
+    setCartBtn(true);
   };
 
   console.log("storeeeee", store.getState());
@@ -171,7 +173,13 @@ export const SingleProduct = () => {
                 borderRadius: "5px",
               }}
             >
-              <button onClick={handleClick}>ADD TO BAG</button>
+              {cartBtn ? (
+                <button onClick={() => navigate("/cartaddress")}>
+                  GO TO BAG
+                </button>
+              ) : (
+                <button onClick={handleClick}>ADD TO BAG</button>
+              )}
             </div>
             <div
               style={{
