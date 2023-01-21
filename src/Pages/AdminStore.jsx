@@ -1,7 +1,11 @@
 import React, { useEffect } from "react";
 import AdminSide from "./AdminSide";
 import { Box, Button, Text } from "@chakra-ui/react";
-import { getAdminProduct } from "../Redux/Admin/action";
+import {
+  deleteAdminProduct,
+  getAdminProduct,
+  updateAdminProduct,
+} from "../Redux/Admin/action";
 import { useDispatch, useSelector } from "react-redux";
 import {
   Table,
@@ -18,9 +22,21 @@ import {
 const AdminStore = () => {
   const data = useSelector((store) => store.AdminReducer.products);
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(getAdminProduct);
   }, []);
+
+  const handleDelete = (id) => {
+    dispatch(deleteAdminProduct(id)).then(() => {
+      dispatch(getAdminProduct);
+    });
+  };
+  const handleUpdate = () => {
+    dispatch(updateAdminProduct()).then(() => {
+      dispatch(getAdminProduct);
+    });
+  };
 
   return (
     <Box>
@@ -69,10 +85,12 @@ const AdminStore = () => {
                     </Td>
                     {/* <Td>{el.strike_price}</Td> */}
                     <Td>
-                      <Button>Edit</Button>
+                      <Button onClick={() => handleUpdate(el.id)}>Edit</Button>
                     </Td>
                     <Td>
-                      <Button>Delete</Button>
+                      <Button onClick={() => handleDelete(el.id)}>
+                        Delete
+                      </Button>
                     </Td>
                   </Tr>
                 );
