@@ -5489,10 +5489,10 @@
   "userData": [
     {
       "id": "1",
-      "first_name": "Jitendra",
-      "last_name": "Kumar",
-      "email": "jitendra@gmail.com",
-      "password": "jitendra@123"
+      "firstName": "Jitendra",
+      "lastName": "Kumar",
+      "Email": "jitendra@gmail.com",
+      "Password": "jitendra@123"
     }
   ],
   "adminData": {
