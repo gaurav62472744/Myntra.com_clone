@@ -15,6 +15,7 @@ import AdminCutomer from "../Pages/AdminCutomer";
 import { CartBag } from "../Pages/CartBag";
 import { PrivateRoute } from "./PrivateRoute";
 
+
 const MainRoutes = () => {
   return (
     <div>
@@ -33,9 +34,9 @@ const MainRoutes = () => {
         <Route
           path="/cartpayment"
           element={
-            <PrivateRoute>
+             <PrivateRoute>
               <CartPayment />
-            </PrivateRoute>
+             </PrivateRoute>
           }
         />
         <Route path="/dashboard" element={<Dashboard />}></Route>

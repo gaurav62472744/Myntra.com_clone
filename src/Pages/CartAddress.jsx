@@ -29,7 +29,7 @@ export const CartAddress = () => {
         justifyContent={"space-between"}
       >
         <Box w="13%">
-          <Image w="35%" src={Wardrobe} />
+          <Link to='/'><Image w="35%" src={Wardrobe} /></Link>
         </Box>
 
         <Box
