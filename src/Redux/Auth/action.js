@@ -9,22 +9,25 @@ const signupSuccess = () => {
 
 const getSignupSuccess = (payload) => {
   return {
-    type: LOGIN_SUCCESS,payload
+    type: LOGIN_SUCCESS,
+    payload,
   };
 };
 
-export const SignUp = (firstName, LastName, Email, Password) => (dispatch) => {
+export const SignUp = (firstName, lastName, Email, Password) => (dispatch) => {
   const payload = {
     firstName,
-    LastName,
+    lastName,
     Email,
     Password,
   };
 
-  return axios.post(`https://wadrobe.onrender.com/userData`, payload).then((res) => {
-    console.log(res);
-    dispatch(signupSuccess(res.data));
-  });
+  return axios
+    .post(`https://wadrobe.onrender.com/userData`, payload)
+    .then((res) => {
+      console.log(res);
+      dispatch(signupSuccess(res.data));
+    });
 };
 
 export const getLoginData = () => (dispatch) => {

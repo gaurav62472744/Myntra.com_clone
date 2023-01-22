@@ -63,6 +63,7 @@ export const SingleProduct = () => {
           width: "80%",
           // border: "1px solid red",
           margin: "auto",
+
           justifyContent: "space-between",
         }}
       >

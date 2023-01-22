@@ -111,7 +111,7 @@ export default function DummyNavbar() {
             <Input
               backgroundColor="gray.100"
               type="text"
-              placeholder="Search for produts,brands and more"
+              placeholder="Search for products, brands and more..."
             />
           </InputGroup>
         </Stack>
