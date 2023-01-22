@@ -6,9 +6,11 @@ import { useState } from "react";
 import { AiFillStar } from "react-icons/ai";
 import axios from "axios";
 import { store } from "../Redux/store";
+import LargeWithAppLinksAndSocial from "../Components/Footer";
 
 import { addCart, getCartData } from "../Redux/Cart/action";
 import { ArrowForwardIcon } from "@chakra-ui/icons";
+import DummyNavbar from "../Components/Navbar";
 export const SingleProduct = () => {
   const [single, setSingle] = useState({});
   const { id } = useParams();
@@ -53,6 +55,7 @@ export const SingleProduct = () => {
 
   return (
     <>
+      <DummyNavbar />
       <div
         style={{
           display: "flex",
@@ -114,6 +117,9 @@ export const SingleProduct = () => {
             <p style={{ color: "rgb(27,166,133)", fontWeight: "bold" }}>
               inclusive of all taxes
             </p>
+            <p style={{ fontWeight: "400", fontSize: "30px" }}>
+              {single.category}
+            </p>
           </div>
           <div
             style={{
@@ -127,10 +133,13 @@ export const SingleProduct = () => {
               <p
                 style={{
                   // border: "1px solid green",
+                  borderRadius: "5px",
                   width: "100%",
                   fontSize: "18px",
                   fontWeight: "500",
-                  color: "brown",
+                  color: "white",
+                  backgroundColor: "rgb(190,180,242)",
+                  padding: "0px 10px",
                 }}
               >
                 SELECT SIZE
@@ -148,9 +157,68 @@ export const SingleProduct = () => {
               </p>
             </div>
           </div>
-          <p style={{ fontWeight: "bold", fontSize: "30px" }}>
-            {single.category}
-          </p>
+
+          {/* ................................................sizecahrt .............................................. */}
+          <div
+            className="size"
+            style={{
+              // border: "1px solid red",
+              display: "flex",
+              width: "60%",
+              justifyContent: "space-between",
+              padding: "8px 10px 5px 0px",
+              marginTop: "10px",
+              gap: "5px",
+            }}
+          >
+            <button
+              style={{
+                border: "1px solid red",
+                width: "20%",
+                borderRadius: "100px",
+              }}
+            >
+              S
+            </button>
+            <button
+              style={{
+                border: "1px solid red",
+                width: "20%",
+                borderRadius: "100px",
+              }}
+            >
+              M
+            </button>
+            <button
+              style={{
+                border: "1px solid red",
+                width: "20%",
+                borderRadius: "100px",
+              }}
+            >
+              L
+            </button>
+            <button
+              style={{
+                border: "1px solid red",
+                width: "20%",
+                borderRadius: "100px",
+              }}
+            >
+              XL
+            </button>
+            <button
+              style={{
+                border: "1px solid red",
+                width: "20%",
+                borderRadius: "100px",
+              }}
+            >
+              XXL
+            </button>
+          </div>
+          {/* ......................................................................................................... */}
+
           {/* .............................button..................................... */}
           <div
             className="btnadd"
@@ -193,7 +261,111 @@ export const SingleProduct = () => {
               <button>WISHLIST</button>
             </div>
           </div>
-          {/* ........................................end................................. */}
+          <div style={{ border: "1px solid grey" }}></div>
+
+          <div style={{ fontWeight: "bold" }}>DELIVERY OPTIONS :-</div>
+          <div
+            style={{
+              border: "1px solid black",
+              borderRadius: "5px",
+              width: "50%",
+              display: "flex",
+              padding: "0px 10px ",
+              justifyContent: "space-between",
+            }}
+          >
+            <div
+              style={{
+                width: "40%",
+                // border: "1px solid red",
+              }}
+            >
+              <input
+                style={{ textAlign: "center" }}
+                type="text"
+                placeholder="Enter PinCode"
+              />
+            </div>
+            <div>
+              <button
+                style={{
+                  color: "rgb(255,62,108)",
+                  // border: "1px solid red",
+                  width: "100%",
+                }}
+              >
+                Check
+              </button>
+            </div>
+          </div>
+          {/* ....................................... */}
+          <div>
+            <p style={{ fontSize: "12px" }}>
+              Please enter PIN code to check delivery time & Pay on Delivery
+              Availability
+            </p>
+          </div>
+          {/* ........................................ */}
+          <div>
+            <p>100% Original Products</p>
+            <p>Pay on delivery might be available</p>
+            <p>Easy 30 days returns and exchanges</p>
+            <p>Try & Buy might be available</p>
+          </div>
+          {/* ....................................... */}
+          <div style={{ border: "1px solid grey" }}></div>
+          <div style={{ marginTop: "15px" }}>
+            <p style={{ fontSize: "20px", fontWeight: "500" }}>BEST OFFER :-</p>
+          </div>
+          {/* ......................................... */}
+
+          <div>
+            <li>
+              Applicable on: Orders above Rs. 799 (only on first purchase)
+            </li>
+            <li>
+              Coupon code: <span style={{ fontWeight: "500" }}>MYNTRA200</span>
+            </li>
+            <li>Coupon Discount: Rs. 175 off (check cart for final savings)</li>
+          </div>
+          {/* ........................................ */}
+          <div>
+            <p
+              style={{
+                color: "rgb(255,62,108)",
+                fontWeight: "bold",
+                fontSize: "14px",
+              }}
+            >
+              View Eligible Products
+            </p>
+          </div>
+          {/* .................................... */}
+          <div>
+            <p
+              style={{
+                fontWeight: "bold",
+                fontSize: "18px",
+              }}
+            >
+              EMI option available
+            </p>
+          </div>
+          {/* ...................... */}
+          <div>
+            <li>EMI starting from Rs.33/month</li>
+          </div>
+          <div>
+            <p
+              style={{
+                color: "rgb(255,62,108)",
+                fontWeight: "bold",
+                fontSize: "14px",
+              }}
+            >
+              View Plan
+            </p>
+          </div>
         </div>
       </div>
 
@@ -214,6 +386,7 @@ export const SingleProduct = () => {
           SIMILAR PRODUCTS
         </h1>
       </div> */}
+      <LargeWithAppLinksAndSocial />
     </>
   );
 };

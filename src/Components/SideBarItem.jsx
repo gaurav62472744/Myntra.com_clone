@@ -37,13 +37,35 @@ const brands = [
     name: "The Indian Garage Co",
     quan: 1,
   },
+  {
+    name: "Alan Jones",
+    quan: 10,
+  },
+  {
+    name: "AUSK",
+    quan: 15,
+  },
+  {
+    name: "ALIZA",
+    quan: 10,
+  },
+  {
+    name: "MAZY",
+    quan: 6,
+  },
+  {
+    name: "D&J",
+    quan: 16,
+  },
 ];
 const DivWrap = styled.div`
   border: 1px solid red;
   display: flex;
   align-items: center;
-
-  font-size: 15px;
+  font-size: 18px;
+  text-align: left;
+  padding: 0px 20px;
+  line-height: 40px;
 `;
 
 const SideBarItem = ({ name, quan, type }) => {
@@ -84,7 +106,7 @@ const SideBarItem = ({ name, quan, type }) => {
               onChange={handleFilter}
               checked={brand.includes(item.name)}
             />
-            <label>{item.name}</label>
+            <label style={{ marginLeft: "10px" }}>{item.name}</label>
           </div>
         ))}
       </div>
@@ -97,3 +119,7 @@ const SideBarItem = ({ name, quan, type }) => {
 };
 
 export default SideBarItem;
+
+// 1.div(display flex,text align;left,padding)
+// 2. two more div under avove div
+//
