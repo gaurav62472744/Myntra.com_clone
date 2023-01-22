@@ -19,7 +19,7 @@ const DivWraper = styled.div`
     width: 100%;
     display: flex;
     flex-direction: row;
-    margin-top: 60px;
+    margin-top: 70px;
   }
   & .sidebr {
     width: 18%;
