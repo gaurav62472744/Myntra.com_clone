@@ -42,7 +42,7 @@ export const CartBag = ({ coupon = 0, convience = 0 }) => {
     setafterdeduction(finalprice)
   }, [])
 
-  console.log('cart bag price details',price,afterdeduction)
+  console.log('cart bag price details', price, afterdeduction)
 
 
   return (
@@ -54,7 +54,7 @@ export const CartBag = ({ coupon = 0, convience = 0 }) => {
         justifyContent={"space-between"}
       >
         <Box w="13%">
-          <Image w="35%" src={Wardrobe} />
+          <Link to='/'><Image w="35%" src={Wardrobe} /></Link>
         </Box>
 
         <Box
@@ -66,8 +66,8 @@ export const CartBag = ({ coupon = 0, convience = 0 }) => {
           color="grey"
           fontWeight="bold"
         >
-         <span style={{ color: "#48BB78" }}>  BAG</span> ------------ ADDRESS ------------{" "}
-         PAYMENT
+          <span style={{ color: "#48BB78" }}>  BAG</span> ------------ ADDRESS ------------{" "}
+          PAYMENT
         </Box>
 
         <Box>
@@ -172,7 +172,7 @@ export const CartBag = ({ coupon = 0, convience = 0 }) => {
             </Box>
             <Box>
               <FormLabel fontWeight="bold" mb='25px' mt="25px" fontSize="16px">
-                TOTAL {cartData && cartData.length } ITEMS
+                TOTAL {cartData && cartData.length} ITEMS
               </FormLabel>
             </Box>
             <Box boxShadow="  rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;">

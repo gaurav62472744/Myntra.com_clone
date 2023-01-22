@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { CheckCircleIcon } from '@chakra-ui/icons';
 import {
   Box,
   Button,
@@ -8,15 +9,28 @@ import {
   HStack,
   PinInput,
   PinInputField,
+  AlertDialog,
+  AlertDialogOverlay,
+  AlertDialogContent,
+  AlertDialogHeader,
+  AlertDialogBody,
+  AlertDialogCloseButton,
+  AlertDialogFooter
 } from "@chakra-ui/react";
 import { BsCashStack, BsCreditCard } from "react-icons/bs";
 import { VscDesktopDownload } from "react-icons/vsc";
 import { RiBankLine } from "react-icons/ri";
 import { GiWallet } from "react-icons/gi";
 import { FaCcAmazonPay } from "react-icons/fa";
-import { MdWarning } from "react-icons/md";
+import { MdWarning, MdCelebration } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
+import { useDisclosure } from "@chakra-ui/react";
+
 export const PaymentMode = () => {
   const [payment, setpayment] = useState(false);
+  const { isOpen, onOpen, onClose } = useDisclosure()
+  const cancelRef = React.useRef()
+
 
   const handleCash = () => {
     setpayment(false);
@@ -25,6 +39,10 @@ export const PaymentMode = () => {
   const handleCard = () => {
     setpayment(true);
   };
+
+
+
+  const navigate = useNavigate()
   return (
     <Box mt="20px" display={"flex"}>
       <Box gap={0.5} display={"grid"} w="39%">
@@ -154,15 +172,55 @@ export const PaymentMode = () => {
                 <Input placeholder="DD/MM" />
                 <Input placeholder="CVV" />
               </Box>
-              <Button
-                p="20px"
-                bg="#FF3F6C"
-                colorScheme={"white"}
-                w="100%"
-                mt="10px"
-              >
-                PAY NOW
-              </Button>
+              <Box>
+                <Button
+                  p="20px"
+                  bg="#FF3F6C"
+                  colorScheme={"white"}
+                  w="100%"
+                  mt="10px"
+                  onClick={onOpen}
+                >
+                  PAY NOW
+                </Button>
+                <AlertDialog
+                  motionPreset='slideInBottom'
+                  leastDestructiveRef={cancelRef}
+                  onClose={onClose}
+                  isOpen={isOpen}
+                  isCentered
+                >
+
+                  <AlertDialogOverlay />
+
+                  <AlertDialogContent>
+                    <AlertDialogHeader textAlign={'center'}><CheckCircleIcon boxSize={'50px'} color={'green.500'} /></AlertDialogHeader>
+                    <AlertDialogCloseButton />
+                    <AlertDialogBody>
+                      <Heading textAlign={'center'} as="h2" size="xl" mt={6} mb={2}>
+                        Payment Successfull
+                      </Heading>
+                      <Box ml='70px' display={'flex'}>
+                        <Text >Thank You For Choosing Wardrobe </Text>
+
+                      </Box>
+
+                    </AlertDialogBody>
+                    <AlertDialogFooter>
+
+                      <Button onClick={() => navigate('/')} mr='150px' bg="#FF3F6C"
+                        colorScheme={"white"} >
+                        Done
+                      </Button>
+                    </AlertDialogFooter>
+                  </AlertDialogContent>
+                </AlertDialog>
+
+
+              </Box>
+
+
+
             </Box>
           </Box>
         ) : (
