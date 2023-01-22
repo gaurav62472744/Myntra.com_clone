@@ -23,7 +23,7 @@ const DivWraper = styled.div`
   }
   & .sidebr {
     width: 18%;
-    border: 1px solid red;
+    /* border: 1px solid red; */
   }
   & .prodtlist {
     display: grid;

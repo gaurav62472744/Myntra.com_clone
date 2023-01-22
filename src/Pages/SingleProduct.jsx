@@ -59,12 +59,11 @@ export const SingleProduct = () => {
       <div
         style={{
           display: "flex",
-          marginTop: "80px",
+          marginTop: "100px",
           width: "80%",
-          border: "1px solid red",
+          // border: "1px solid red",
           margin: "auto",
           justifyContent: "space-between",
-          marginTop: "80px",
         }}
       >
         <div style={{ width: "49%" }}>
@@ -77,7 +76,7 @@ export const SingleProduct = () => {
         {/* .............................................. */}
         <div
           style={{
-            border: "1px solid green",
+            // border: "1px solid green",
             width: "49%",
             textAlign: "left",
             padding: "10px",
