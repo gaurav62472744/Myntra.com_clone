@@ -59,7 +59,7 @@ export const SingleProduct = () => {
       <div
         style={{
           display: "flex",
-
+          marginTop: "80px",
           width: "80%",
           border: "1px solid red",
           margin: "auto",

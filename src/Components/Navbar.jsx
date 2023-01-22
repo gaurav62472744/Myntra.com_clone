@@ -274,7 +274,7 @@ export default function DummyNavbar() {
               variant={"link"}
               href={"#"}
             >
-              Bag
+              <HomeLink to="/cartbag">Bag</HomeLink>
             </Button>
           </VStack>
         </Stack>
