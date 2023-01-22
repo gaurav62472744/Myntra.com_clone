@@ -15,7 +15,7 @@ const DivWraper = styled.div`
   box-sizing: border-box;
   /* overflow-x: hidden; */
   & .container {
-    border: 1px solid brown;
+    /* border: 1px solid brown; */
     width: 100%;
     display: flex;
     flex-direction: row;

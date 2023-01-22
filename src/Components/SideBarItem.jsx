@@ -4,62 +4,8 @@ import { useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import styled from "styled-components";
 
-const brands = [
-  {
-    name: "Dennis Lingo",
-    quan: 2,
-  },
-  {
-    name: "HIGHLANDER",
-    quan: 17,
-  },
-  {
-    name: "Lee",
-    quan: 1,
-  },
-  {
-    name: "Roadster",
-    quan: 30,
-  },
-  {
-    name: "H&M",
-    quan: 5,
-  },
-  {
-    name: "IVOC",
-    quan: 1,
-  },
-  {
-    name: "United Colors of Benetton",
-    quan: 1,
-  },
-  {
-    name: "The Indian Garage Co",
-    quan: 1,
-  },
-  {
-    name: "Alan Jones",
-    quan: 10,
-  },
-  {
-    name: "AUSK",
-    quan: 15,
-  },
-  {
-    name: "ALIZA",
-    quan: 10,
-  },
-  {
-    name: "MAZY",
-    quan: 6,
-  },
-  {
-    name: "D&J",
-    quan: 16,
-  },
-];
 const DivWrap = styled.div`
-  border: 1px solid red;
+  /* border: 1px solid red; */
   display: flex;
   align-items: center;
   font-size: 18px;
@@ -68,17 +14,20 @@ const DivWrap = styled.div`
   line-height: 40px;
 `;
 
-const SideBarItem = ({ name, quan, type }) => {
+const SideBarItem = ({ brands, titles }) => {
   // const [value, setValue] = useState([]);
+  console.log("brandds", brands, titles);
   const [searchParams, setSearchParams] = useSearchParams();
-  const initialState = searchParams.getAll("brand");
+  const initialStateBrand = searchParams.getAll("brand");
+  const initialStateTitle = searchParams.getAll("title");
   // const initialOrder = searchParams.get("order");
-  const [brand, setBrand] = useState(initialState || []);
-  // const [title, setTitle] = useState(initialState || []);
+  const [brand, setBrand] = useState(initialStateBrand || []);
+  const [title, setTitle] = useState(initialStateTitle || []);
   // const [order, setOrder] = useState(initialOrder || "");
-
+  console.log("searchParams", searchParams);
   const handleFilter = (e) => {
     let newCategory = [...brand];
+
     if (newCategory.includes(e.target.value)) {
       newCategory.splice(newCategory.indexOf(e.target.value), 1);
     } else {
@@ -86,33 +35,72 @@ const SideBarItem = ({ name, quan, type }) => {
     }
     setBrand(newCategory);
   };
-
+  const handleFilterTitle = (e) => {
+    let newTitle = [...title];
+    if (newTitle.includes(e.target.value)) {
+      newTitle.splice(newTitle.indexOf(e.target.value), 1);
+    } else {
+      newTitle.push(e.target.value);
+    }
+    setTitle(newTitle);
+  };
   useEffect(() => {
-    if (brand) {
+    if (brand.length > 0) {
+      let params = {};
+      params.brand = brand;
+      setSearchParams(params);
+      console.log("params.....", params);
+    }
+    if (title.length > 0) {
+      let params = {};
+      params.title = title;
+      setSearchParams(params);
+      console.log("params title.....", params);
+    } else if (brand.length > 0 && title.length > 0) {
+      let params = {};
+      params.brand = brand;
+      params.title = title;
+      setSearchParams(params);
+    } else {
       let params = {};
       params.brand = brand;
       setSearchParams(params);
     }
-  }, [brand, searchParams]);
+  }, [brand]);
 
   return (
     <DivWrap>
       <div>
-        {brands.map((item) => (
-          <div>
-            <input
-              type="checkbox"
-              value={item.name}
-              onChange={handleFilter}
-              checked={brand.includes(item.name)}
-            />
-            <label style={{ marginLeft: "10px" }}>{item.name}</label>
-          </div>
-        ))}
+        {brands &&
+          brands.map((item) => (
+            <div>
+              <input
+                type="checkbox"
+                value={item.name}
+                onChange={handleFilter}
+                checked={brand.includes(item.name)}
+              />
+              <label style={{ marginLeft: "10px", color: "rgb(242,83,16)" }}>
+                {item.name}
+              </label>
+            </div>
+          ))}
       </div>
       <div>
-        <div>{name}</div>
-        {type === "brand" && <div>({quan})</div>}
+        {titles &&
+          titles.map((item) => (
+            <div>
+              <input
+                type="checkbox"
+                value={item.name}
+                onChange={handleFilterTitle}
+                checked={title.includes(item.name)}
+              />
+              <label style={{ marginLeft: "10px", color: "rgb(242,83,16)" }}>
+                {item.name}
+              </label>
+            </div>
+          ))}
       </div>
     </DivWrap>
   );

@@ -64,11 +64,12 @@ export const SingleProduct = () => {
           border: "1px solid red",
           margin: "auto",
           justifyContent: "space-between",
+          marginTop: "80px",
         }}
       >
         <div style={{ width: "49%" }}>
           <img
-            style={{ width: "100%" }}
+            style={{ width: "100%", height: "100%" }}
             src={single.images && single.images[0]}
             alt=""
           />
