@@ -70,7 +70,6 @@ export const AddressDetails = () => {
           </FormLabel>
         </Box>
         <Box>
-          {/* <Button fontSize='13px' size='sm' bg='white' border='1px solid black'>ADD NEW ADDRESS</Button> */}
           <Button
             fontSize="13px"
             size="sm"
@@ -186,12 +185,7 @@ export const AddressDetails = () => {
                 </FormControl>
               </ModalBody>
 
-              <ModalFooter>
-                {/* <Button colorScheme='blue' mr={3}>
-                    Save
-                  </Button> */}
-                {/* <Button onClick={onClose}>Cancel</Button> */}
-              </ModalFooter>
+              <ModalFooter></ModalFooter>
             </ModalContent>
           </Modal>
         </Box>
@@ -375,21 +369,10 @@ export const AddressDetails = () => {
               </FormControl>
             </ModalBody>
 
-            <ModalFooter>
-              {/* <Button colorScheme='blue' mr={3}>
-                   Save
-                 </Button> */}
-              {/* <Button onClick={onClose}>Cancel</Button> */}
-            </ModalFooter>
+            <ModalFooter></ModalFooter>
           </ModalContent>
         </Modal>
       </Box>
     </Box>
   );
 };
-
-{
-  /* <Box  mt='40px'  w={{base:'95%',md:'95%',lg:'80%'}} p={{base:0,md:0,lg:6}} boxShadow='  rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;'>
-    
-    </Box> */
-}

@@ -1,4 +1,3 @@
-// import React, { ReactNode } from 'react';
 import {
   IconButton,
   Avatar,
@@ -24,9 +23,6 @@ import {
 } from "@chakra-ui/react";
 import {
   FiHome,
-  // FiTrendingUp,
-  // FiCompass,
-  // FiStar,
   FiSettings,
   FiMenu,
   FiBell,
@@ -35,15 +31,9 @@ import {
 import { AiOutlineUsergroupAdd, AiOutlineFolderAdd } from "react-icons/ai";
 import { MdOutlineStoreMallDirectory } from "react-icons/md";
 import image from "../Utils/Wardrobe.png";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import AdminImage from "../Utils/Wardrobe.png";
-// import { IconType } from 'react-icons';
-// import { ReactText } from 'react';
 
-// interface LinkItemProps {
-//   name: string;
-//   icon: IconType;
-// }
 const LinkItems = [
   { name: "Home", icon: FiHome, path: "/dashboard" },
   { name: "Add Product", icon: AiOutlineFolderAdd, path: "/addproduct" },
@@ -54,10 +44,10 @@ const LinkItems = [
 
 export default function AdminSide() {
   const { isOpen, onOpen, onClose } = useDisclosure();
+
   return (
     <Box pos={"fixed"} top={0} right={0} left={0} zIndex={999}>
       <SidebarContent
-        // style={{ backgroundColor: "gray.200" }}
         bg={"gray.200"}
         onClose={() => onClose}
         display={{ base: "none", md: "block" }}
@@ -76,10 +66,9 @@ export default function AdminSide() {
           <SidebarContent onClose={onClose} />
         </DrawerContent>
       </Drawer>
-      {/* mobilenav */}
+
       <MobileNav onOpen={onOpen} />
       <Box ml={{ base: 0, md: 60 }} p="4">
-        {/* {children} */}
         {LinkItems.map((link) => (
           <Link href={link.path}></Link>
         ))}
@@ -87,10 +76,6 @@ export default function AdminSide() {
     </Box>
   );
 }
-
-// interface SidebarProps extends BoxProps {
-//   onClose: () => void;
-// }
 
 const SidebarContent = ({ onClose, ...rest }) => {
   return (
@@ -105,9 +90,6 @@ const SidebarContent = ({ onClose, ...rest }) => {
       {...rest}
     >
       <Flex h="20" alignItems="center" mx="8" justifyContent="space-between">
-        {/* <Text fontSize="2xl" fontFamily="monospace" fontWeight="bold">
-          Logo
-        </Text> */}
         <Image src={image} alt="logo" width={"120px"} />
         <CloseButton display={{ base: "flex", md: "none" }} onClick={onClose} />
       </Flex>
@@ -119,12 +101,6 @@ const SidebarContent = ({ onClose, ...rest }) => {
     </Box>
   );
 };
-{
-  /* <Link href={children.path}>{children.name}</Link> */
-}
-// interface NavItemProps extends FlexProps {
-//   icon: IconType;
-//   children: ReactText;
 
 const NavItem = ({ icon, children, item, ...rest }) => {
   return (
@@ -162,10 +138,11 @@ const NavItem = ({ icon, children, item, ...rest }) => {
   );
 };
 
-// interface MobileProps extends FlexProps {
-//   onOpen: () => void;
-// }
 const MobileNav = ({ onOpen, ...rest }) => {
+  const Navigate = useNavigate();
+  const handleClick = () => {
+    Navigate("/");
+  };
   return (
     <Flex
       bg={"gray.200"}
@@ -173,7 +150,6 @@ const MobileNav = ({ onOpen, ...rest }) => {
       px={{ base: 4, md: 4 }}
       height="20"
       alignItems="center"
-      // bg={useColorModeValue("white", "gray.900")}
       borderBottomWidth="1px"
       borderBottomColor={useColorModeValue("gray.200", "gray.700")}
       justifyContent={{ base: "space-between", md: "flex-end" }}
@@ -241,7 +217,7 @@ const MobileNav = ({ onOpen, ...rest }) => {
               <MenuItem>Settings</MenuItem>
               <MenuItem>Billing</MenuItem>
               <MenuDivider />
-              <MenuItem>Sign out</MenuItem>
+              <MenuItem onClick={handleClick}>Sign out</MenuItem>
             </MenuList>
           </Menu>
         </Flex>
