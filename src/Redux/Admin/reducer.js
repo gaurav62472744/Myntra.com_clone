@@ -69,24 +69,33 @@ const reducer = (state = inisitalState, { type, payload }) => {
     case GET_CHILD_PRODUCT_FAILURE: {
       return { ...state, isLoading: false, isError: true };
     }
-    case ADD_MEN_PRODUCT_REQUEST:
+    case ADD_MEN_PRODUCT_REQUEST: {
       return { ...state, isLoading: true };
-    case ADD_MEN_PRODUCT_SUCCESS:
+    }
+    case ADD_MEN_PRODUCT_SUCCESS: {
       return { ...state, isLoading: false };
-    case ADD_MEN_PRODUCT_FAILURE:
+    }
+    case ADD_MEN_PRODUCT_FAILURE: {
       return { ...state, isLoading: false, isError: true };
-    case ADD_WOMEN_PRODUCT_REQUEST:
+    }
+    case ADD_WOMEN_PRODUCT_REQUEST: {
       return { ...state, isLoading: true };
-    case ADD_WOMEN_PRODUCT_SUCCESS:
+    }
+    case ADD_WOMEN_PRODUCT_SUCCESS: {
       return { ...state, isLoading: false };
-    case ADD_WOMEN_PRODUCT_FAILURE:
+    }
+    case ADD_WOMEN_PRODUCT_FAILURE: {
       return { ...state, isLoading: false, isError: true };
-    case ADD_CHILD_PRODUCT_REQUEST:
+    }
+    case ADD_CHILD_PRODUCT_REQUEST: {
       return { ...state, isLoading: true };
-    case ADD_CHILD_PRODUCT_SUCCESS:
+    }
+    case ADD_CHILD_PRODUCT_SUCCESS: {
       return { ...state, isLoading: false };
-    case ADD_CHILD_PRODUCT_FAILURE:
+    }
+    case ADD_CHILD_PRODUCT_FAILURE: {
       return { ...state, isLoading: false, isError: true };
+    }
     case UPDATE_PRODUCT_REQUEST: {
       return { ...state, isLoading: true };
     }
