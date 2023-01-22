@@ -80,7 +80,7 @@ const SideBarItem = ({ brands, titles }) => {
                 onChange={handleFilter}
                 checked={brand.includes(item.name)}
               />
-              <label style={{ marginLeft: "10px", color: "rgb(242,83,16)" }}>
+              <label style={{ marginLeft: "10px", color: "green" }}>
                 {item.name}
               </label>
             </div>
@@ -96,7 +96,7 @@ const SideBarItem = ({ brands, titles }) => {
                 onChange={handleFilterTitle}
                 checked={title.includes(item.name)}
               />
-              <label style={{ marginLeft: "10px", color: "rgb(242,83,16)" }}>
+              <label style={{ marginLeft: "10px", color: "green" }}>
                 {item.name}
               </label>
             </div>
