@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { CheckCircleIcon } from '@chakra-ui/icons';
+import { CheckCircleIcon } from "@chakra-ui/icons";
 import {
   Box,
   Button,
@@ -15,7 +15,7 @@ import {
   AlertDialogHeader,
   AlertDialogBody,
   AlertDialogCloseButton,
-  AlertDialogFooter
+  AlertDialogFooter,
 } from "@chakra-ui/react";
 import { BsCashStack, BsCreditCard } from "react-icons/bs";
 import { VscDesktopDownload } from "react-icons/vsc";
@@ -28,9 +28,8 @@ import { useDisclosure } from "@chakra-ui/react";
 
 export const PaymentMode = () => {
   const [payment, setpayment] = useState(false);
-  const { isOpen, onOpen, onClose } = useDisclosure()
-  const cancelRef = React.useRef()
-
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const cancelRef = React.useRef();
 
   const handleCash = () => {
     setpayment(false);
@@ -40,9 +39,7 @@ export const PaymentMode = () => {
     setpayment(true);
   };
 
-
-
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   return (
     <Box mt="20px" display={"flex"}>
       <Box gap={0.5} display={"grid"} w="39%">
@@ -184,43 +181,46 @@ export const PaymentMode = () => {
                   PAY NOW
                 </Button>
                 <AlertDialog
-                  motionPreset='slideInBottom'
+                  motionPreset="slideInBottom"
                   leastDestructiveRef={cancelRef}
                   onClose={onClose}
                   isOpen={isOpen}
                   isCentered
                 >
-
                   <AlertDialogOverlay />
 
                   <AlertDialogContent>
-                    <AlertDialogHeader textAlign={'center'}><CheckCircleIcon boxSize={'50px'} color={'green.500'} /></AlertDialogHeader>
+                    <AlertDialogHeader textAlign={"center"}>
+                      <CheckCircleIcon boxSize={"50px"} color={"green.500"} />
+                    </AlertDialogHeader>
                     <AlertDialogCloseButton />
                     <AlertDialogBody>
-                      <Heading textAlign={'center'} as="h2" size="xl" mt={6} mb={2}>
+                      <Heading
+                        textAlign={"center"}
+                        as="h2"
+                        size="xl"
+                        mt={6}
+                        mb={2}
+                      >
                         Payment Successfull
                       </Heading>
-                      <Box ml='70px' display={'flex'}>
-                        <Text >Thank You For Choosing Wardrobe </Text>
-
+                      <Box ml="70px" display={"flex"}>
+                        <Text>Thank You For Choosing Wardrobe </Text>
                       </Box>
-
                     </AlertDialogBody>
                     <AlertDialogFooter>
-
-                      <Button onClick={() => navigate('/')} mr='150px' bg="#FF3F6C"
-                        colorScheme={"white"} >
+                      <Button
+                        onClick={() => navigate("/")}
+                        mr="170px"
+                        bg="#FF3F6C"
+                        colorScheme={"white"}
+                      >
                         Done
                       </Button>
                     </AlertDialogFooter>
                   </AlertDialogContent>
                 </AlertDialog>
-
-
               </Box>
-
-
-
             </Box>
           </Box>
         ) : (

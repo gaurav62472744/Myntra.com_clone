@@ -12,38 +12,33 @@ import {
   AccordionButton,
   AccordionIcon,
   AccordionPanel,
-  Button
+  Button,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { TbDiscount2 } from "react-icons/tb";
 import { BagDetails } from "../Components/BagDetails";
 export const CartBag = ({ coupon = 0, convience = 0 }) => {
-
-  const [price, setprice] = useState(0)
-  const [afterdeduction, setafterdeduction] = useState(0)
-  const cartData = useSelector(store => store.CartReducer.cart)
-  const dispatch = useDispatch()
+  const [price, setprice] = useState(0);
+  const [afterdeduction, setafterdeduction] = useState(0);
+  const cartData = useSelector((store) => store.CartReducer.cart);
+  const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getCartData())
+    dispatch(getCartData());
     let sum = 0;
-    let finalprice = 0
+    let finalprice = 0;
     let newPrice = cartData?.map((el) => {
+      let y = +el.strike_price;
+      let x = +el.discounted_price;
 
-      let y = +el.strike_price
-      let x = +el.discounted_price
+      sum = sum + y;
+      finalprice += x;
+      console.log("cart amoyun", sum, finalprice);
+    });
+    setprice(sum);
+    setafterdeduction(finalprice);
+  }, [cartData.length]);
 
-      sum = sum + y
-      finalprice += x
-      console.log("cart amoyun", sum, finalprice)
-
-
-    })
-    setprice(sum)
-    setafterdeduction(finalprice)
-  }, [])
-
-  console.log('cart bag price details', price, afterdeduction)
-
+  console.log("cart bag price details", price, afterdeduction);
 
   return (
     <Box>
@@ -54,7 +49,9 @@ export const CartBag = ({ coupon = 0, convience = 0 }) => {
         justifyContent={"space-between"}
       >
         <Box w="13%">
-          <Link to='/'><Image w="35%" src={Wardrobe} /></Link>
+          <Link to="/">
+            <Image w="35%" src={Wardrobe} />
+          </Link>
         </Box>
 
         <Box
@@ -66,8 +63,8 @@ export const CartBag = ({ coupon = 0, convience = 0 }) => {
           color="grey"
           fontWeight="bold"
         >
-          <span style={{ color: "#48BB78" }}>  BAG</span> ------------ ADDRESS ------------{" "}
-          PAYMENT
+          <span style={{ color: "#48BB78" }}> BAG</span> ------------ ADDRESS
+          ------------ PAYMENT
         </Box>
 
         <Box>
@@ -96,8 +93,6 @@ export const CartBag = ({ coupon = 0, convience = 0 }) => {
         justifyContent="space-evenly"
       >
         <Box>
-
-
           <Box mt="20px" w={{ base: "95%", md: "95%", lg: "650px" }} mr="50px">
             <Box
               p="10px"
@@ -113,41 +108,52 @@ export const CartBag = ({ coupon = 0, convience = 0 }) => {
 
               <Accordion allowMultiple>
                 <AccordionItem>
-                  <Box color={"grey"} textAlign={"left"} fontSize="13px" ml="30px">
+                  <Box
+                    color={"grey"}
+                    textAlign={"left"}
+                    fontSize="13px"
+                    ml="30px"
+                  >
                     <ul>
                       <li>
                         <span>
-                          10% Instant Discount on Citi Credit and Debit Cards on a min
-                          spend of Rs 3,000. TCA
+                          10% Instant Discount on Citi Credit and Debit Cards on
+                          a min spend of Rs 3,000. TCA
                         </span>
                       </li>
                     </ul>
                   </Box>
                   <AccordionPanel pb={4}>
-                    <Box color={"grey"} textAlign={"left"} fontSize="13px" ml="15px">
+                    <Box
+                      color={"grey"}
+                      textAlign={"left"}
+                      fontSize="13px"
+                      ml="15px"
+                    >
                       <ul>
                         <li>
-                          10% Instant Discount on ICICI Bank Credit Cards on a min
-                          spend of Rs 4,000. TCA
+                          10% Instant Discount on ICICI Bank Credit Cards on a
+                          min spend of Rs 4,000. TCA
                         </li>
                         <li>
-                          10% Instant Discount on ICICI Bank Credit Cards on a min
-                          spend of Rs 4,000. TCA
+                          10% Instant Discount on ICICI Bank Credit Cards on a
+                          min spend of Rs 4,000. TCA
                         </li>
                         <li>
-                          Get up to Rs 500 Cashback on CRED Pay UPI on a min spend of
-                          Rs 1,000. TCA
+                          Get up to Rs 500 Cashback on CRED Pay UPI on a min
+                          spend of Rs 1,000. TCA
                         </li>
                         <li>
-                          5% Cashback on Paytm Wallet and Postpaid Transactions on a
-                          min spend of Rs 1,500. TCA
+                          5% Cashback on Paytm Wallet and Postpaid Transactions
+                          on a min spend of Rs 1,500. TCA
                         </li>
                         <li>
-                          5% Unlimited Cashback on Flipkart Axis Bank Credit Card. TCA
+                          5% Unlimited Cashback on Flipkart Axis Bank Credit
+                          Card. TCA
                         </li>
                         <li>
-                          10% Cashback upto Rs 150 on Freecharge Paylater transaction.
-                          TCA
+                          10% Cashback upto Rs 150 on Freecharge Paylater
+                          transaction. TCA
                         </li>
                       </ul>
                     </Box>
@@ -171,30 +177,19 @@ export const CartBag = ({ coupon = 0, convience = 0 }) => {
               </Accordion>
             </Box>
             <Box>
-              <FormLabel fontWeight="bold" mb='25px' mt="25px" fontSize="16px">
+              <FormLabel fontWeight="bold" mb="25px" mt="25px" fontSize="16px">
                 TOTAL {cartData && cartData.length} ITEMS
               </FormLabel>
             </Box>
             <Box boxShadow="  rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;">
-
-
-              {
-                cartData?.map((el) => (
-                  <BagDetails {...el} />
-                ))
-              }
-
-
+              {cartData?.map((el) => (
+                <BagDetails {...el} />
+              ))}
             </Box>
           </Box>
-
-
-
-
         </Box>
 
         <Box>
-
           <Box mt="5px" width="280px">
             <Box>
               add some picture here
@@ -202,14 +197,20 @@ export const CartBag = ({ coupon = 0, convience = 0 }) => {
             </Box>
             <Box lineHeight={"25px"} gap={7} display={"flex"}>
               <Box textAlign={"left"}>
-                <FormLabel fontSize="13px">PRICE DETAILS({cartData.length} Items)</FormLabel>
+                <FormLabel fontSize="13px">
+                  PRICE DETAILS({cartData.length} Items)
+                </FormLabel>
                 <Text fontSize={"14px"}>Total MRP</Text>
                 <Text fontSize={"14px"}>Discount on MRP</Text>
                 <Text fontSize={"14px"}>Coupon Discount</Text>
                 <Text mb="10px" fontSize={"14px"}>
                   Convience Fee{" "}
                   <span
-                    style={{ color: "#FF3F6C", fontWeight: "bold", fontSize: "15px" }}
+                    style={{
+                      color: "#FF3F6C",
+                      fontWeight: "bold",
+                      fontSize: "15px",
+                    }}
                   >
                     Know More
                   </span>
@@ -233,23 +234,20 @@ export const CartBag = ({ coupon = 0, convience = 0 }) => {
                   ₹{afterdeduction - coupon + convience}
                 </FormLabel>
               </Box>
-
             </Box>
           </Box>
 
-          <Link to='/cartaddress'>
-            <Button mt="15px"
+          <Link to="/cartaddress">
+            <Button
+              mt="15px"
               p="20px"
               bg="#FF3F6C"
               colorScheme={"white"}
-              w="100%">
+              w="100%"
+            >
               PLACE ORDER
             </Button>
           </Link>
-
-
-
-
         </Box>
       </Box>
 
