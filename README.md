@@ -1,70 +1,58 @@
-# Getting Started with Create React App
+<h1 align="center" id="title">Wardrobe</h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p align="center"><img src="https://iili.io/HcHUepe.png" alt="project-image" width="220" height="200/"></p>
 
-## Available Scripts
+<p id="description">Wardrobe is an e-commerce online website for the best fashion products of all categories for the consumer. User can buy products at best deals and offers.<br><br><b>This is a collaborative project of 4 members</b><br><br>- Gaurav Singh (Team Lead)<br>- Jitendra Kumar <br>- Aman Kumar <br>- Sanket TJ </p>
 
-In the project directory, you can run:
+<h2>🌐See Live</h2>
 
-### `npm start`
+[https://halting-title-3346.vercel.app/](https://halting-title-3346.vercel.app/)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+<h2>Project Screenshots:</h2>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<img src="https://i.postimg.cc/mrW2zzZM/Screenshot-20230122-091721.png" alt="project-screenshot" width="500" height="250/">
 
-### `npm test`
+<img src="https://i.postimg.cc/Y2v9PwPv/Screenshot-20230122-091758.png" alt="project-screenshot" width="500" height="250/">
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<img src="https://i.postimg.cc/nLwxKXp0/Screenshot-20230122-091822.png" alt="project-screenshot" width="500" height="250/">
 
-### `npm run build`
+<img src="https://i.postimg.cc/nc8Hw97W/Screenshot-20230122-091901.png" alt="project-screenshot" width="500" height="250/">
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<img src="https://i.postimg.cc/bv6y66H0/Screenshot-20230122-091919.png" alt="project-screenshot" width="500" height="250/">
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<img src="https://i.postimg.cc/BvZZBWDQ/Screenshot-20230122-091951.png" alt="project-screenshot" width="500" height="250/">
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<h2>🛠️ Installation Steps:</h2>
 
-### `npm run eject`
+<p>1. Clone the repo</p>
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```
+git clone https://github.com/gaurav62472744/halting-title-3346.git
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<p>2. Install NPM packages</p>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```
+npm install
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+<p>3. View on browser at localhost:3000</p>
 
-## Learn More
+```
+npm start
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+  
+  
+<h2>💻 Tech Stack</h2>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Technologies used in the project:
 
-### Code Splitting
+*   React Js
+*   Redux
+*   Chakra Ui
+*   JavaScript
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+<h2>Special Thanks 😊</h2>
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<p>Thanks Masai School for giving us this opportunity to show and deploy our skills to explore ideas and learn new things about project-making </p>
