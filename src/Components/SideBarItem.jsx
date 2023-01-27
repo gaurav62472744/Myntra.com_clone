@@ -75,7 +75,7 @@ const SideBarItem = ({ brands, titles }) => {
           brands.map((item) => (
             <div>
               <input
-                type="checkbox"
+                type="checkbox" 
                 value={item.name}
                 onChange={handleFilter}
                 checked={brand.includes(item.name)}
