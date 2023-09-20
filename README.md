@@ -7,7 +7,7 @@
 <h2>🌐See Live</h2>
 
 [https://halting-title-3346.vercel.app/](https://halting-title-3346.vercel.app/)
-
+[https://650ac0a63c0761379a614223--dazzling-trifle-f9b78e.netlify.app/](https://650ac0a63c0761379a614223--dazzling-trifle-f9b78e.netlify.app/)
 <h2>Project Screenshots:</h2>
 
 ## Home Page
